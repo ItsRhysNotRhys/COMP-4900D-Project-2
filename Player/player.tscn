@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6jehlrjyd2wf"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_8kw1p"]
+[ext_resource type="Texture2D" uid="uid://hwye011fj6ma" path="res://icon.svg" id="2_w5gvr"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_8kw1p")
+
+[node name="Icon" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Icon"]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_w5gvr")
+expand_mode = 1

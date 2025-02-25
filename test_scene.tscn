@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dskbm7n4q4dmx"]
+
+[ext_resource type="Texture2D" uid="uid://d4njbfd06d2um" path="res://Assets/Backgrounds/Background_Grass.jpg" id="1_umycl"]
+[ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_oy65c"]
+
+[node name="Test Scene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1083.0
+texture = ExtResource("1_umycl")
+
+[node name="Player" parent="." instance=ExtResource("2_oy65c")]
+position = Vector2(86, 791)
