@@ -10,12 +10,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if alive :
 		if step < trajectory.size() - 2:
 			position = trajectory[step]
 			rotation = (trajectory[step + 1] - position).angle()
-			step += 1
+			step += 20
 
 
 func start(points):

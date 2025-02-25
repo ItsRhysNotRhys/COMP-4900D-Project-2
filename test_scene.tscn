@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dskbm7n4q4dmx"]
+[gd_scene load_steps=8 format=3 uid="uid://dskbm7n4q4dmx"]
 
+[ext_resource type="Script" path="res://Player/test_scene.gd" id="1_qp4ec"]
 [ext_resource type="Texture2D" uid="uid://d4njbfd06d2um" path="res://Assets/Backgrounds/Background_Grass.jpg" id="1_umycl"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_oy65c"]
 [ext_resource type="PackedScene" uid="uid://didtsnm3gv0e7" path="res://interface.tscn" id="3_hkkfh"]
+[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="4_ypdg6"]
+[ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Player/obstacle.tscn" id="6_ui8wy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ion5l"]
+resource_local_to_scene = true
+size = Vector2(200, 256)
 
 [node name="Test Scene" type="Node2D"]
+script = ExtResource("1_qp4ec")
+next_scene_path = "res://test_scene_2.tscn"
 
 [node name="TestLevel" type="Node2D" parent="."]
 
@@ -18,3 +27,19 @@ position = Vector2(86, 791)
 
 [node name="Interface" parent="." instance=ExtResource("3_hkkfh")]
 visible = false
+
+[node name="Fire" parent="." instance=ExtResource("4_ypdg6")]
+position = Vector2(1736, 344)
+
+[node name="Obstacle" parent="." instance=ExtResource("6_ui8wy")]
+position = Vector2(802, 708)
+
+[node name="Sprite2D" parent="Obstacle" index="0"]
+position = Vector2(894, -28)
+scale = Vector2(1.625, 2.01563)
+
+[node name="CollisionShape2D" parent="Obstacle" index="1"]
+position = Vector2(890, -28)
+shape = SubResource("RectangleShape2D_ion5l")
+
+[editable path="Obstacle"]
