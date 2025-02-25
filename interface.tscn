@@ -17,9 +17,8 @@ offset_right = 1922.0
 offset_bottom = 1017.0
 color = Color(0.0117647, 0.368627, 0.564706, 1)
 
-[node name="MenuBar" type="MenuBar" parent="."]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 864.0
-offset_right = 47.0
-offset_bottom = 904.0
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 863.0
+offset_right = 1921.0
+offset_bottom = 1013.0

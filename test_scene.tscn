@@ -17,3 +17,4 @@ texture = ExtResource("1_umycl")
 position = Vector2(86, 791)
 
 [node name="Interface" parent="." instance=ExtResource("3_hkkfh")]
+visible = false
