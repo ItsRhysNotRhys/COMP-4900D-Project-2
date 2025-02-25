@@ -1,5 +1,7 @@
 extends Node2D
 
+var Projectile = preload("res://Player/projectile.tscn")
+
 enum { 
 	FUNC_LINEAR,
 	FUNC_QUAD,
@@ -11,6 +13,8 @@ var current_function = FUNC_LINEAR
 #General Function properties
 @export var step_size: int = 1
 @export var max_steps: int = 2000
+
+var current_trajectory = []
 
 #linear
 var mx = 1
@@ -62,6 +66,13 @@ func handle_input():
 			c += 10
 		if Input.is_action_just_pressed("S"):
 			c -= 10
+	
+	if Input.is_action_just_pressed("Shoot"):
+		#Create water projectile and give it the trajectory
+		var proj_instance = Projectile.instantiate()
+		add_child(proj_instance)
+		
+		proj_instance.start(current_trajectory)
 
 func _draw():
 	draw_trajectory()
@@ -77,6 +88,7 @@ func draw_trajectory():
 			
 			points.append(Vector2(x, -y)) #Godot has flipped y
 			
+			
 	elif current_function == FUNC_QUAD:
 		# y = ax^2 + bx + c
 		for i in range(max_steps + 1):
@@ -85,6 +97,8 @@ func draw_trajectory():
 			points.append(Vector2(x, -y))
 	
 	$Icon.position = points[0]
+	current_trajectory = points
+	
 	for i in range(points.size() - 1):
 		
 		draw_line(points[i], points[i+1], Color.RED, 2)

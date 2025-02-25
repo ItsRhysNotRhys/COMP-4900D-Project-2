@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dskbm7n4q4dmx"]
+[gd_scene load_steps=4 format=3 uid="uid://dskbm7n4q4dmx"]
 
 [ext_resource type="Texture2D" uid="uid://d4njbfd06d2um" path="res://Assets/Backgrounds/Background_Grass.jpg" id="1_umycl"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_oy65c"]
+[ext_resource type="PackedScene" uid="uid://didtsnm3gv0e7" path="res://interface.tscn" id="3_hkkfh"]
 
 [node name="Test Scene" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TestLevel" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="TestLevel"]
 offset_right = 1922.0
 offset_bottom = 1083.0
 texture = ExtResource("1_umycl")
 
 [node name="Player" parent="." instance=ExtResource("2_oy65c")]
 position = Vector2(86, 791)
+
+[node name="Interface" parent="." instance=ExtResource("3_hkkfh")]
