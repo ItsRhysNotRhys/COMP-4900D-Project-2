@@ -40,6 +40,14 @@ func _process(_delta):
 	
 	pass
 
+func inc():
+	b += 20
+	$"../Label".text = str(b)
+	
+func dec():
+	b -= 20
+	$"../Label".text = str(b)
+
 func handle_input():
 	if Input.is_action_just_pressed("Cycle_functions"):
 		current_function = (current_function + 1) % FUNC_COUNT
@@ -50,9 +58,9 @@ func handle_input():
 		if Input.is_action_just_pressed("Arrow_down"):
 			mx -= 0.1
 		if Input.is_action_just_pressed("Arrow_left"):
-			b += 5
+			inc()
 		if Input.is_action_just_pressed("Arrow_right"):
-			b -= 5
+			dec()
 	elif current_function == FUNC_QUAD:
 		if Input.is_action_just_pressed("Arrow_up"):
 			a += 0.1 / quad_scale

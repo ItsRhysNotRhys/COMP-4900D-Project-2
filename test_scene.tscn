@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dskbm7n4q4dmx"]
+[gd_scene load_steps=9 format=3 uid="uid://dskbm7n4q4dmx"]
 
 [ext_resource type="Script" path="res://Player/test_scene.gd" id="1_qp4ec"]
 [ext_resource type="Texture2D" uid="uid://d4njbfd06d2um" path="res://Assets/Backgrounds/Background_Grass.jpg" id="1_umycl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://didtsnm3gv0e7" path="res://interface.tscn" id="3_hkkfh"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="4_ypdg6"]
 [ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Player/obstacle.tscn" id="6_ui8wy"]
+[ext_resource type="Script" path="res://label.gd" id="7_2b3sl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ion5l"]
 resource_local_to_scene = true
@@ -41,5 +42,44 @@ scale = Vector2(1.625, 2.01563)
 [node name="CollisionShape2D" parent="Obstacle" index="1"]
 position = Vector2(890, -28)
 shape = SubResource("RectangleShape2D_ion5l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 216.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 832.0
+offset_top = 32.0
+offset_right = 896.0
+offset_bottom = 80.0
+text = "UP"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 832.0
+offset_top = 144.0
+offset_right = 896.0
+offset_bottom = 192.0
+text = "DOWN"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 824.0
+offset_top = 48.0
+offset_right = 936.0
+offset_bottom = 185.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+script = ExtResource("7_2b3sl")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 584.0
+offset_top = 48.0
+offset_right = 896.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "y=x+"
+
+[connection signal="pressed" from="Button" to="Label" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="Label" method="_on_button_2_pressed"]
 
 [editable path="Obstacle"]
