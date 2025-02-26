@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dskbm7n4q4dmx"]
+[gd_scene load_steps=10 format=3 uid="uid://dskbm7n4q4dmx"]
 
 [ext_resource type="Script" path="res://Player/test_scene.gd" id="1_qp4ec"]
 [ext_resource type="Texture2D" uid="uid://d4njbfd06d2um" path="res://Assets/Backgrounds/Background_Grass.jpg" id="1_umycl"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_oy65c"]
 [ext_resource type="PackedScene" uid="uid://didtsnm3gv0e7" path="res://interface.tscn" id="3_hkkfh"]
-[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="4_ypdg6"]
-[ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Player/obstacle.tscn" id="6_ui8wy"]
-[ext_resource type="Script" path="res://label.gd" id="7_2b3sl"]
+[ext_resource type="PackedScene" path="res://Player/fire.tscn" id="4_ypdg6"]
+[ext_resource type="PackedScene" path="res://Player/obstacle.tscn" id="6_ui8wy"]
+[ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="7_e7nmo"]
+[ext_resource type="Script" path="res://transformations.gd" id="8_ab800"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ion5l"]
 resource_local_to_scene = true
@@ -43,43 +44,119 @@ scale = Vector2(1.625, 2.01563)
 position = Vector2(890, -28)
 shape = SubResource("RectangleShape2D_ion5l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 216.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1919.0
+offset_bottom = 381.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
 
-[node name="Button" type="Button" parent="."]
-offset_left = 832.0
-offset_top = 32.0
-offset_right = 896.0
-offset_bottom = 80.0
-text = "UP"
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 832.0
-offset_top = 144.0
-offset_right = 896.0
-offset_bottom = 192.0
-text = "DOWN"
+[node name="f(x)" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("7_e7nmo")
+text = "f(x)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="."]
-offset_left = 824.0
-offset_top = 48.0
-offset_right = 936.0
-offset_bottom = 185.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-script = ExtResource("7_2b3sl")
+[node name="equals" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 584.0
-offset_top = 48.0
-offset_right = 896.0
-offset_bottom = 200.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "y=x+"
+[node name="main_term" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 
-[connection signal="pressed" from="Button" to="Label" method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="Label" method="_on_button_2_pressed"]
+[node name="open_bracket" type="Label" parent="MarginContainer/HBoxContainer/main_term"]
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+text = "("
+
+[node name="x" type="Label" parent="MarginContainer/HBoxContainer/main_term"]
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="plus" type="Label" parent="MarginContainer/HBoxContainer/main_term"]
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+text = "+"
+
+[node name="h_shift" type="VBoxContainer" parent="MarginContainer/HBoxContainer/main_term"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="h_shift_up" type="Button" parent="MarginContainer/HBoxContainer/main_term/h_shift"]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="h_shift" type="Label" parent="MarginContainer/HBoxContainer/main_term/h_shift"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+horizontal_alignment = 3
+vertical_alignment = 3
+script = ExtResource("8_ab800")
+
+[node name="h_shift_down" type="Button" parent="MarginContainer/HBoxContainer/main_term/h_shift"]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="close_bracket" type="Label" parent="MarginContainer/HBoxContainer/main_term"]
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+text = ")"
+
+[node name="plus" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="v_shift" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="v_shift_up" type="Button" parent="MarginContainer/HBoxContainer/v_shift"]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="v_shift" type="Label" parent="MarginContainer/HBoxContainer/v_shift"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme = ExtResource("7_e7nmo")
+horizontal_alignment = 3
+vertical_alignment = 3
+script = ExtResource("8_ab800")
+
+[node name="v_shift_down" type="Button" parent="MarginContainer/HBoxContainer/v_shift"]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/main_term/h_shift/h_shift_up" to="MarginContainer/HBoxContainer/main_term/h_shift/h_shift" method="_on_h_shift_up"]
+[connection signal="h_shift_changed" from="MarginContainer/HBoxContainer/main_term/h_shift/h_shift" to="Player" method="_on_h_shift_h_shift_changed"]
+[connection signal="v_shift_changed" from="MarginContainer/HBoxContainer/main_term/h_shift/h_shift" to="Player" method="_on_v_shift_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/main_term/h_shift/h_shift_down" to="MarginContainer/HBoxContainer/main_term/h_shift/h_shift" method="_on_h_shift_down"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/v_shift/v_shift_up" to="MarginContainer/HBoxContainer/v_shift/v_shift" method="_on_v_shift_up"]
+[connection signal="v_shift_changed" from="MarginContainer/HBoxContainer/v_shift/v_shift" to="Player" method="_on_v_shift_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/v_shift/v_shift_down" to="MarginContainer/HBoxContainer/v_shift/v_shift" method="_on_v_shift_down"]
 
 [editable path="Obstacle"]

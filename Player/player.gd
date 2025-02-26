@@ -16,6 +16,7 @@ var current_function = FUNC_LINEAR
 
 var current_trajectory = []
 
+# I don't think we need separate values according to which function type we're using
 #linear
 var mx = 1
 var b = 0
@@ -25,6 +26,11 @@ var a = -0.01
 var bq = 1
 var c = 0
 var quad_scale = 200
+
+# can just use this instead
+var v_shift = 0
+var h_shift = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,13 +46,6 @@ func _process(_delta):
 	
 	pass
 
-func inc():
-	b += 20
-	$"../Label".text = str(b)
-	
-func dec():
-	b -= 20
-	$"../Label".text = str(b)
 
 func handle_input():
 	if Input.is_action_just_pressed("Cycle_functions"):
@@ -58,9 +57,9 @@ func handle_input():
 		if Input.is_action_just_pressed("Arrow_down"):
 			mx -= 0.1
 		if Input.is_action_just_pressed("Arrow_left"):
-			inc()
+			b += 25
 		if Input.is_action_just_pressed("Arrow_right"):
-			dec()
+			b -= 25
 	elif current_function == FUNC_QUAD:
 		if Input.is_action_just_pressed("Arrow_up"):
 			a += 0.1 / quad_scale
@@ -92,7 +91,7 @@ func draw_trajectory():
 		#Using the draw line function, iterate through a y = mx + b 
 		for i in range(max_steps + 1):
 			var x = i * step_size
-			var y = mx * x + b
+			var y = mx * (x+h_shift) + v_shift
 			
 			points.append(Vector2(x, -y)) #Godot has flipped y
 			
@@ -101,7 +100,7 @@ func draw_trajectory():
 		# y = ax^2 + bx + c
 		for i in range(max_steps + 1):
 			var x = i * step_size
-			var y = a * x * x + bq * x + c
+			var y = a * (x+h_shift) * (x+h_shift) + v_shift
 			points.append(Vector2(x, -y))
 	
 	$Icon.position = points[0]
@@ -110,3 +109,11 @@ func draw_trajectory():
 	for i in range(points.size() - 1):
 		
 		draw_line(points[i], points[i+1], Color.RED, 2)
+
+
+func _on_v_shift_changed(new_value: Variant) -> void:
+	v_shift = new_value
+
+
+func _on_h_shift_h_shift_changed(new_value: Variant) -> void:
+	h_shift = new_value
