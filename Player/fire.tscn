@@ -1,16 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0k78pqmt2v1m"]
 
 [ext_resource type="Script" path="res://Player/fire.gd" id="1_inycd"]
-[ext_resource type="Texture2D" uid="uid://hwye011fj6ma" path="res://icon.svg" id="1_loc7h"]
+[ext_resource type="SpriteFrames" uid="uid://cknbvvhj8k1br" path="res://Assets/Fire/fire.tres" id="2_wv53q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15dqc"]
 size = Vector2(129, 130)
 
 [node name="Fire" type="Area2D"]
 script = ExtResource("1_inycd")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_loc7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -19,6 +16,14 @@ debug_color = Color(0.778531, 0.429259, 0.246777, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -40.27)
+scale = Vector2(0.565, 0.565)
+sprite_frames = ExtResource("2_wv53q")
+animation = &"Fire"
+autoplay = "Fire"
+frame_progress = 0.688224
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

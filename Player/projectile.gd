@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var speed = 2
+var incr = 0
 var alive = false
 var trajectory = []
 var step = 0
@@ -12,10 +14,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if alive :
-		if step < trajectory.size() - 2:
-			position = trajectory[step]
-			rotation = (trajectory[step + 1] - position).angle()
-			step += 20
+		incr += 1
+		if incr % speed == 0:
+			if step < trajectory.size() - 2:
+				position = trajectory[step]
+				rotation = (trajectory[step + 1] - position).angle()
+				step += 20
 
 
 func start(points):

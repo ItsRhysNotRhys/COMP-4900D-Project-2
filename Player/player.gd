@@ -76,6 +76,8 @@ func handle_input():
 	
 	if Input.is_action_just_pressed("Shoot"):
 		#Create water projectile and give it the trajectory
+		$Attack.start()
+		$Icon/AnimatedSprite2D.play("Attack")
 		var proj_instance = Projectile.instantiate()
 		add_child(proj_instance)
 		
@@ -117,3 +119,7 @@ func _on_v_shift_changed(new_value: Variant) -> void:
 
 func _on_h_shift_h_shift_changed(new_value: Variant) -> void:
 	h_shift = new_value
+
+
+func _on_attack_timeout():
+	$Icon/AnimatedSprite2D.play("Idle")
