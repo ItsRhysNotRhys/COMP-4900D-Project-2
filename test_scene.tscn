@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dskbm7n4q4dmx"]
+[gd_scene load_steps=11 format=3 uid="uid://dskbm7n4q4dmx"]
 
 [ext_resource type="Script" path="res://Player/test_scene.gd" id="1_qp4ec"]
 [ext_resource type="Texture2D" uid="uid://d4njbfd06d2um" path="res://Assets/Backgrounds/Background_Grass.jpg" id="1_umycl"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_oy65c"]
 [ext_resource type="PackedScene" uid="uid://didtsnm3gv0e7" path="res://interface.tscn" id="3_hkkfh"]
-[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="4_ypdg6"]
-[ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Player/obstacle.tscn" id="6_ui8wy"]
+[ext_resource type="PackedScene" path="res://Player/fire.tscn" id="4_ypdg6"]
+[ext_resource type="PackedScene" path="res://Player/obstacle.tscn" id="6_ui8wy"]
 [ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="7_e7nmo"]
 [ext_resource type="Script" path="res://equation_container.gd" id="7_xjocs"]
+[ext_resource type="Script" path="res://addons/GodoTeX/LaTeX.cs" id="9_k2lcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ion5l"]
 resource_local_to_scene = true
@@ -25,7 +26,7 @@ offset_bottom = 1083.0
 texture = ExtResource("1_umycl")
 
 [node name="Player" parent="." instance=ExtResource("2_oy65c")]
-position = Vector2(86, 791)
+position = Vector2(304, 783)
 
 [node name="Interface" parent="." instance=ExtResource("3_hkkfh")]
 visible = false
@@ -44,253 +45,163 @@ scale = Vector2(1.625, 2.01563)
 position = Vector2(890, -28)
 shape = SubResource("RectangleShape2D_ion5l")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1919.0
-offset_bottom = 381.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-
-[node name="EquationContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 49.0
+offset_top = 61.0
+offset_right = 1032.0
+offset_bottom = 402.0
+theme = ExtResource("7_e7nmo")
+theme_override_constants/separation = 0
 script = ExtResource("7_xjocs")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/EquationContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-
-[node name="f(x)" type="Label" parent="MarginContainer/EquationContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "f(x)"
-horizontal_alignment = 1
-vertical_alignment = 2
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/EquationContainer/VBoxContainer"]
+[node name="LaTeX" type="Sprite2D" parent="VBoxContainer/BoxContainer"]
+script = ExtResource("9_k2lcm")
+_latexExpression = "f(x) = x^2"
+_fontSize = 100.0
+
+[node name="vShift" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/vShift"]
+layout_mode = 2
+text = "Vertical shift:"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/vShift"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
-theme = ExtResource("7_e7nmo")
-selected = 0
-fit_to_longest_item = false
-item_count = 2
-popup/item_0/text = "Line"
-popup/item_1/text = "Parabola"
-popup/item_1/id = 1
+step = 0.5
+alignment = 2
+select_all_on_focus = true
 
-[node name="equals" type="Label" parent="MarginContainer/EquationContainer"]
-layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "="
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="v_flip" type="VBoxContainer" parent="MarginContainer/EquationContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="v_flip_up" type="Button" parent="MarginContainer/EquationContainer/v_flip"]
-custom_minimum_size = Vector2(125, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = " "
-
-[node name="v_flip" type="Label" parent="MarginContainer/EquationContainer/v_flip"]
-custom_minimum_size = Vector2(125, 0)
-layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "+"
-horizontal_alignment = 3
-vertical_alignment = 3
-
-[node name="v_flip_down" type="Button" parent="MarginContainer/EquationContainer/v_flip"]
-custom_minimum_size = Vector2(125, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "+/-"
-
-[node name="v_scale" type="VBoxContainer" parent="MarginContainer/EquationContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="v_scale_up" type="Button" parent="MarginContainer/EquationContainer/v_scale"]
-custom_minimum_size = Vector2(125, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "+"
-
-[node name="v_scale" type="Label" parent="MarginContainer/EquationContainer/v_scale"]
-custom_minimum_size = Vector2(125, 0)
-layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "1"
-horizontal_alignment = 3
-vertical_alignment = 3
-
-[node name="v_scale_down" type="Button" parent="MarginContainer/EquationContainer/v_scale"]
-custom_minimum_size = Vector2(125, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "-"
-
-[node name="main_term" type="HBoxContainer" parent="MarginContainer/EquationContainer"]
+[node name="hShift" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
-[node name="open_bracket" type="Label" parent="MarginContainer/EquationContainer/main_term"]
+[node name="Label" type="Label" parent="VBoxContainer/hShift"]
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "("
+size_flags_horizontal = 3
+text = "Horizontal shift:"
 
-[node name="h_flip" type="VBoxContainer" parent="MarginContainer/EquationContainer/main_term"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/hShift"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 0.5
+alignment = 2
+select_all_on_focus = true
 
-[node name="h_flip_up" type="Button" parent="MarginContainer/EquationContainer/main_term/h_flip"]
-custom_minimum_size = Vector2(125, 50)
+[node name="vScale" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = " "
 
-[node name="h_flip" type="Label" parent="MarginContainer/EquationContainer/main_term/h_flip"]
-custom_minimum_size = Vector2(125, 0)
+[node name="Label" type="Label" parent="VBoxContainer/vScale"]
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "+"
-horizontal_alignment = 3
-vertical_alignment = 3
+size_flags_horizontal = 3
+text = "Vertical scale:"
 
-[node name="h_flip_down" type="Button" parent="MarginContainer/EquationContainer/main_term/h_flip"]
-custom_minimum_size = Vector2(125, 50)
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/vScale"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "+/-"
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 0.25
+alignment = 2
+select_all_on_focus = true
 
-[node name="h_scale" type="VBoxContainer" parent="MarginContainer/EquationContainer/main_term"]
+[node name="hScale" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 0
 
-[node name="h_scale_up" type="Button" parent="MarginContainer/EquationContainer/main_term/h_scale"]
-custom_minimum_size = Vector2(125, 50)
+[node name="Label" type="Label" parent="VBoxContainer/hScale"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
+size_flags_horizontal = 3
+text = "Horizontal scale:"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/hScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 0.25
+alignment = 2
+select_all_on_focus = true
+
+[node name="vFlip" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/vFlip"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vertical reflection:"
+
+[node name="Button" type="Button" parent="VBoxContainer/vFlip"]
+layout_mode = 2
 text = "+"
 
-[node name="h_scale" type="Label" parent="MarginContainer/EquationContainer/main_term/h_scale"]
-custom_minimum_size = Vector2(125, 0)
+[node name="hFlip" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "1"
-horizontal_alignment = 3
-vertical_alignment = 3
 
-[node name="h_scale_down" type="Button" parent="MarginContainer/EquationContainer/main_term/h_scale"]
-custom_minimum_size = Vector2(125, 50)
+[node name="Label" type="Label" parent="VBoxContainer/hFlip"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "-"
+size_flags_horizontal = 3
+text = "Horizontal reflection:"
 
-[node name="x" type="Label" parent="MarginContainer/EquationContainer/main_term"]
+[node name="Button" type="Button" parent="VBoxContainer/hFlip"]
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "x"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="plus" type="Label" parent="MarginContainer/EquationContainer/main_term"]
-layout_mode = 2
-theme = ExtResource("7_e7nmo")
 text = "+"
 
-[node name="h_shift" type="VBoxContainer" parent="MarginContainer/EquationContainer/main_term"]
+[node name="debug_ui" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="h_shift_up" type="Button" parent="MarginContainer/EquationContainer/main_term/h_shift"]
-custom_minimum_size = Vector2(125, 50)
-layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "+"
 
-[node name="h_shift" type="Label" parent="MarginContainer/EquationContainer/main_term/h_shift"]
+[node name="v_shift" type="Button" parent="VBoxContainer/debug_ui"]
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "0"
+size_flags_vertical = 0
+text = "v_shift"
 
-[node name="h_shift_down" type="Button" parent="MarginContainer/EquationContainer/main_term/h_shift"]
-custom_minimum_size = Vector2(125, 50)
+[node name="h_shift" type="Button" parent="VBoxContainer/debug_ui"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "-"
+size_flags_vertical = 0
+text = "h_shift"
 
-[node name="close_bracket" type="Label" parent="MarginContainer/EquationContainer/main_term"]
+[node name="v_scale" type="Button" parent="VBoxContainer/debug_ui"]
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = ")"
+size_flags_vertical = 0
+text = "v_scale"
 
-[node name="plus" type="Label" parent="MarginContainer/EquationContainer"]
+[node name="h_scale" type="Button" parent="VBoxContainer/debug_ui"]
 layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "+"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_vertical = 0
+text = "h_scale"
 
-[node name="v_shift" type="VBoxContainer" parent="MarginContainer/EquationContainer"]
+[node name="v_flip" type="Button" parent="VBoxContainer/debug_ui"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "v_flip"
 
-[node name="v_shift_up" type="Button" parent="MarginContainer/EquationContainer/v_shift"]
-custom_minimum_size = Vector2(125, 50)
+[node name="h_flip" type="Button" parent="VBoxContainer/debug_ui"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "+"
+size_flags_vertical = 0
+text = "h_flip"
 
-[node name="v_shift" type="Label" parent="MarginContainer/EquationContainer/v_shift"]
-layout_mode = 2
-theme = ExtResource("7_e7nmo")
-text = "0"
-
-[node name="v_shift_down" type="Button" parent="MarginContainer/EquationContainer/v_shift"]
-custom_minimum_size = Vector2(125, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme = ExtResource("7_e7nmo")
-text = "-"
-
-[connection signal="pressed" from="MarginContainer/EquationContainer/v_flip/v_flip_down" to="MarginContainer/EquationContainer" method="_on_v_flip"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/v_scale/v_scale_up" to="MarginContainer/EquationContainer" method="_on_v_scale_up"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/v_scale/v_scale_down" to="MarginContainer/EquationContainer" method="_on_v_scale_down"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/main_term/h_flip/h_flip_down" to="MarginContainer/EquationContainer" method="_on_h_flip"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/main_term/h_scale/h_scale_up" to="MarginContainer/EquationContainer" method="_on_h_scale_up"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/main_term/h_scale/h_scale_down" to="MarginContainer/EquationContainer" method="_on_h_scale_down"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/main_term/h_shift/h_shift_up" to="MarginContainer/EquationContainer" method="_on_h_shift_up"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/main_term/h_shift/h_shift_down" to="MarginContainer/EquationContainer" method="_on_h_shift_down"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/v_shift/v_shift_up" to="MarginContainer/EquationContainer" method="_on_v_shift_up"]
-[connection signal="pressed" from="MarginContainer/EquationContainer/v_shift/v_shift_down" to="MarginContainer/EquationContainer" method="_on_v_shift_down"]
+[connection signal="value_changed" from="VBoxContainer/vShift/SpinBox" to="VBoxContainer" method="_on_v_shift_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/hShift/SpinBox" to="VBoxContainer" method="_on_h_shift_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/vScale/SpinBox" to="VBoxContainer" method="_on_v_scale_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/hScale/SpinBox" to="VBoxContainer" method="_on_h_scale_value_changed"]
+[connection signal="pressed" from="VBoxContainer/vFlip/Button" to="VBoxContainer" method="_on_v_flip"]
+[connection signal="pressed" from="VBoxContainer/hFlip/Button" to="VBoxContainer" method="_on_h_flip"]
+[connection signal="pressed" from="VBoxContainer/debug_ui/v_shift" to="VBoxContainer" method="_on_debug_v_shift"]
+[connection signal="pressed" from="VBoxContainer/debug_ui/h_shift" to="VBoxContainer" method="_on_debug_h_shift"]
+[connection signal="pressed" from="VBoxContainer/debug_ui/v_scale" to="VBoxContainer" method="_on_debug_v_scale"]
+[connection signal="pressed" from="VBoxContainer/debug_ui/h_scale" to="VBoxContainer" method="_on_debug_h_scale"]
+[connection signal="pressed" from="VBoxContainer/debug_ui/v_flip" to="VBoxContainer" method="_on_debug_v_flip"]
+[connection signal="pressed" from="VBoxContainer/debug_ui/h_flip" to="VBoxContainer" method="_on_debug_h_flip"]
 
 [editable path="Obstacle"]

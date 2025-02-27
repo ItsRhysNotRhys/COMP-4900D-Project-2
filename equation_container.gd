@@ -1,4 +1,7 @@
-extends HBoxContainer
+extends VBoxContainer
+
+# to test ui with different transformations enabled
+var debug = true
 
 # keep track of which function to use
 const Functions = preload("res://functions.gd")
@@ -32,73 +35,63 @@ var has_h_flip = false
 var has_v_scale = false
 var has_h_scale = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# assume linear function by default
 	function = Functions.functions.LINEAR
+	
+	# remove splinbox grey backgrounds
+	$vShift/SpinBox.get_line_edit().flat = true
+	$hShift/SpinBox.get_line_edit().flat = true
+	$vScale/SpinBox.get_line_edit().flat = true
+	$hScale/SpinBox.get_line_edit().flat = true
+	
+	if debug:
+		$debug_ui.show()
+		
+
 
 
 func toggle_transformation(type) -> void:
 	if type == Functions.transformations.VERTICAL_SHIFT:
-		has_v_shift = true
+		has_v_shift = not has_v_shift
+		if has_v_shift:
+			$vShift.show()
+		else:
+			$vShift.hide()
 	elif type == Functions.transformations.HORIZONTAL_SHIFT:
-		has_h_shift = true
+		has_h_shift = not has_h_shift
+		if has_h_shift:
+			$hShift.show()
+		else:
+			$hShift.hide()
 	elif type == Functions.transformations.VERTICAL_SCALE:
-		has_v_scale = true
+		has_v_scale = not has_v_scale
+		if has_v_scale:
+			$vScale.show()
+		else:
+			$vScale.hide()
 	elif type == Functions.transformations.HORIZONTAL_SCALE:
-		has_h_scale = true
+		has_h_scale = not has_h_scale
+		if has_h_scale:
+			$hScale.show()
+		else:
+			$hScale.hide()
 	elif type == Functions.transformations.VERTICAL_FLIP:
-		has_v_flip = true
+		has_v_flip = not has_v_flip
+		if has_v_flip:
+			$vFlip.show()
+		else:
+			$vFlip.hide()
 	elif type == Functions.transformations.HORIZONTAL_FLIP:
-		has_h_flip = true
+		has_h_flip = not has_h_flip
+		if has_h_flip:
+			$hFlip.show()
+		else:
+			$hFlip.hide()
 
-	update_function_ui()
 
-
-# update the ui of the function
-func update_function_ui() -> void:
-	# check if we allow vertical shifts
-	if (has_v_shift):
-		$plus.show()
-		$v_shift.show()
-	else:
-		$plus.hide()
-		$v_shift.hide()
-
-	# check if we allow horizontal shifts
-	if (has_h_shift):
-		$main_term/plus.show()
-		$main_term/h_shift.show()
-	else:
-		$main_term/plus.hide()
-		$main_term/h_shift.hide()
-
-	# check if we allow vertical scaling
-	if (has_v_scale):
-		$v_scale.show()
-	else:
-		$v_scale.hide()
-
-	# check if we allow horizontal scaling
-	if (has_h_scale):
-		$main_term/h_scale.show()
-	else:
-		$main_term/h_scale.hide()
-
-	#check if we allow vertical reflection
-	if (has_v_flip):
-		$v_flip.show()
-	else:
-		$v_flip.hide()
-
-	# check if we allow horizontal reflection
-	if (has_h_flip):
-		$main_term/h_flip.show()
-	else:
-		$main_term/h_flip.hide()
-	
-	# check if certain parentheses should be shown or hidden
-	#todo
 
 
 
@@ -116,55 +109,35 @@ func evaluate(x) -> int:
 
 #### signals from function ui related to applying/changing a transformation
 
-# vertical shift
-func _on_v_shift_up() -> void:
-	v_shift += v_shift_step
-	$v_shift/v_shift.text = str(v_shift)
 
-func _on_v_shift_down() -> void:
-	v_shift -= v_shift_step
-	$v_shift/v_shift.text = str(v_shift)
 
-# horizontal shift
-func _on_h_shift_up() -> void:
-	h_shift += h_shift_step
-	$main_term/h_shift/h_shift.text = str(h_shift)
 
-func _on_h_shift_down() -> void:
-	h_shift += h_shift_step
-	$main_term/h_shift/h_shift.text = str(h_shift)
+#### ui debugging, toggle each transformation
+func _on_debug_v_shift() -> void:
+	toggle_transformation(Functions.transformations.VERTICAL_SHIFT)
+func _on_debug_h_shift() -> void:
+	toggle_transformation(Functions.transformations.HORIZONTAL_SHIFT)
+func _on_debug_v_scale() -> void:
+	toggle_transformation(Functions.transformations.VERTICAL_SCALE)
+func _on_debug_h_scale() -> void:
+	toggle_transformation(Functions.transformations.HORIZONTAL_SCALE)
+func _on_debug_v_flip() -> void:
+	toggle_transformation(Functions.transformations.VERTICAL_FLIP)
+func _on_debug_h_flip() -> void:
+	toggle_transformation(Functions.transformations.HORIZONTAL_FLIP)
 
-# vertical scaling
-func _on_v_scale_up() -> void:
-	v_scale += v_scale_step
-	$v_scale/v_scale.text = str(v_scale)
-	pass # Replace with function body.
 
-func _on_v_scale_down() -> void:
-	v_scale -= v_scale_step
-	$v_scale/v_scale.text = str(v_scale)
 
-# horizontal scaling
-func _on_h_scale_up() -> void:
-	h_scale += h_scale_step
-	$main_term/h_scale/h_scale.text = str(h_scale)
-
-func _on_h_scale_down() -> void:
-	h_scale -= h_scale_step
-	$main_term/h_scale/h_scale.text = str(h_scale)
-
-# vertical reflection
+## update transformation values
+func _on_v_shift_value_changed(value: float) -> void:
+	v_shift = value
+func _on_h_shift_value_changed(value: float) -> void:
+	h_shift = value
+func _on_v_scale_value_changed(value: float) -> void:
+	v_scale = value
+func _on_h_scale_value_changed(value: float) -> void:
+	h_scale = value
 func _on_v_flip() -> void:
-	v_flip *= -1
-	if v_flip < 0:
-		$v_flip/v_flip.text = "-"
-	else:
-		$v_flip/v_flip.text = "+"
-
-# horizontal reflection
+	v_flip = not v_flip
 func _on_h_flip() -> void:
-	h_flip *= -1
-	if h_flip< 0:
-		$main_term/h_flip/h_flip.text = "-"
-	else:
-		$main_term/h_flip/h_flip.text = "+"
+	h_flip = not h_flip
