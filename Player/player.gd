@@ -37,10 +37,10 @@ func _draw():
 
 func draw_trajectory():
 	var points = []
-	var function = $"../VBoxContainer"
+	var function = $"../TestLevel/MarginContainer/VBoxContainer"
 	for i in range(max_steps+1):
 		var x = i*step_size
-		points.append(Vector2(x, function.evaluate(x)))
+		points.append(Vector2(x, -function.evaluate(x)))
 	
 	$Icon.position = points[0]
 	current_trajectory = points
