@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0rei7twpw6cl"]
+
+[ext_resource type="Script" path="res://Player/test_scene.gd" id="1_lcnr6"]
+[ext_resource type="Texture2D" uid="uid://hwye011fj6ma" path="res://icon.svg" id="2_crs3i"]
+[ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_uv07b"]
+[ext_resource type="PackedScene" uid="uid://didtsnm3gv0e7" path="res://interface.tscn" id="3_jhjfl"]
+[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="4_6nbag"]
+
+[node name="Test Scene" type="Node2D"]
+script = ExtResource("1_lcnr6")
+next_scene_path = "res://test_scene.tscn"
+
+[node name="TestLevel" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="TestLevel"]
+offset_right = 1922.0
+offset_bottom = 1083.0
+texture = ExtResource("2_crs3i")
+expand_mode = 3
+
+[node name="Player" parent="." instance=ExtResource("2_uv07b")]
+position = Vector2(86, 791)
+
+[node name="Interface" parent="." instance=ExtResource("3_jhjfl")]
+visible = false
+
+[node name="Fire" parent="." instance=ExtResource("4_6nbag")]
+position = Vector2(1758, 438)
