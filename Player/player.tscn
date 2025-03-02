@@ -1,17 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6jehlrjyd2wf"]
+[gd_scene load_steps=13 format=3 uid="uid://b6jehlrjyd2wf"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8kw1p"]
-[ext_resource type="Texture2D" uid="uid://hwye011fj6ma" path="res://icon.svg" id="2_w5gvr"]
+[ext_resource type="Texture2D" uid="uid://b4b0mh77o0kun" path="res://Assets/wizard_ice/5_ATTACK_000.png" id="2_6yc2x"]
+[ext_resource type="Texture2D" uid="uid://bd2kn7mii111i" path="res://Assets/wizard_ice/5_ATTACK_002.png" id="3_ese7v"]
+[ext_resource type="Texture2D" uid="uid://cihwv5auhlukd" path="res://Assets/wizard_ice/5_ATTACK_004.png" id="4_ix5t6"]
+[ext_resource type="Texture2D" uid="uid://cjesgiyvt4o0h" path="res://Assets/wizard_ice/5_ATTACK_005.png" id="5_nqjhm"]
+[ext_resource type="Texture2D" uid="uid://ysknhwjydueh" path="res://Assets/wizard_ice/5_ATTACK_006.png" id="6_dodh0"]
+[ext_resource type="Texture2D" uid="uid://diadww28eyyf4" path="res://Assets/wizard_ice/1_IDLE_000.png" id="7_en0kn"]
+[ext_resource type="Texture2D" uid="uid://cq1xaau8itcq4" path="res://Assets/wizard_ice/1_IDLE_001.png" id="8_wr1wm"]
+[ext_resource type="Texture2D" uid="uid://7y4ilc6p1gmt" path="res://Assets/wizard_ice/1_IDLE_002.png" id="9_656x5"]
+[ext_resource type="Texture2D" uid="uid://b5rp866sfo2c0" path="res://Assets/wizard_ice/1_IDLE_003.png" id="10_b6g1m"]
+[ext_resource type="Texture2D" uid="uid://ctycoj7jgtvuw" path="res://Assets/wizard_ice/1_IDLE_004.png" id="11_rh7tl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0pbma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6yc2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ese7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ix5t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nqjhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dodh0")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_en0kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wr1wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_656x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b6g1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rh7tl")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_8kw1p")
 
 [node name="Icon" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Icon"]
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_w5gvr")
-expand_mode = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Icon"]
+position = Vector2(-0.999996, -9.53674e-07)
+scale = Vector2(0.325824, 0.325)
+sprite_frames = SubResource("SpriteFrames_0pbma")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.175124
+
+[node name="Attack" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Attack" to="." method="_on_attack_timeout"]

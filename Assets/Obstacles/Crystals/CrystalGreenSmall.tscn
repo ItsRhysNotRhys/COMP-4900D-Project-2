@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xoyo56ey583s"]
+
+[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_qge4m"]
+[ext_resource type="Texture2D" uid="uid://dkelc24vrxyla" path="res://Assets/Objects Img/Crystals/crystals_green/crystal_green3.png" id="2_641uk"]
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_qge4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_641uk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-38, 28, 45, 30, 19, -14, -3, -33, -30, -7)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

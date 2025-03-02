@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://clsn1o4gdd43k"]
+
+[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_bqecs"]
+[ext_resource type="Texture2D" uid="uid://dexq6t5yex7iw" path="res://Assets/Objects Img/Rocks/middle_lane_rocks1/middle_lane_rock1_1.png" id="2_igypy"]
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_bqecs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_igypy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(4, -67, -85, 64, 85, 67, 24, -69)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

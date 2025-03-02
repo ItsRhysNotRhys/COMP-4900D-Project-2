@@ -27,6 +27,8 @@ func _process(_delta):
 func handle_input():
 	if Input.is_action_just_pressed("Shoot"):
 		#Create water projectile and give it the trajectory
+		$Attack.start()
+		$Icon/AnimatedSprite2D.play("Attack")
 		var proj_instance = Projectile.instantiate()
 		add_child(proj_instance)
 		
@@ -48,3 +50,6 @@ func draw_trajectory():
 	for i in range(points.size() - 1):
 		
 		draw_line(points[i], points[i+1], Color.RED, 2)
+
+func _on_attack_timeout():
+	$Icon/AnimatedSprite2D.play("Idle")

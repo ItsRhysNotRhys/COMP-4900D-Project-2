@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3xnvn5qkgcbf"]
+
+[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_x2qrj"]
+[ext_resource type="Texture2D" uid="uid://cobk6xq05lj24" path="res://Assets/Objects Img/Crystals/crystals_violet/crystal_violet3.png" id="2_npxt8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15dqc"]
+resource_local_to_scene = true
+size = Vector2(69, 53)
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_x2qrj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_npxt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 2.5)
+shape = SubResource("RectangleShape2D_15dqc")
+debug_color = Color(0.723181, 0.134939, 0.194561, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
