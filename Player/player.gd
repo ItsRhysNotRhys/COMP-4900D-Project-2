@@ -39,7 +39,7 @@ func _draw():
 
 func draw_trajectory():
 	var points = []
-	var function = $"../TestLevel/MarginContainer/VBoxContainer"
+	var function = $"../Level/MarginContainer/VBoxContainer"
 	for i in range(max_steps+1):
 		var x = i*step_size
 		points.append(Vector2(x, -function.evaluate(x)))

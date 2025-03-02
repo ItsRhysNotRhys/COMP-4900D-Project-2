@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds6o1ot8r4ywi"]
 
 [ext_resource type="Script" path="res://Player/obstacle.gd" id="1_btkow"]
-[ext_resource type="Texture2D" uid="uid://hwye011fj6ma" path="res://icon.svg" id="2_jibt5"]
+[ext_resource type="Texture2D" uid="uid://b7qiduf5gbykg" path="res://icon.svg" id="2_jibt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15dqc"]
 resource_local_to_scene = true
