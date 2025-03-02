@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrse8t36woy7"]
+
+[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_pp3ij"]
+[ext_resource type="Texture2D" uid="uid://b71x6r5fp23tu" path="res://Assets/Objects Img/Clouds/Lightning/lightning2.png" id="2_pjwsd"]
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_pp3ij")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pjwsd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-41, -17, -24, -42, 21, -49, 17, 5, 47, 45, -35, 28)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
