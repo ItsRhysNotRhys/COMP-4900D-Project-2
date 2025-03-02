@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://o0ihx8u084a3"]
 
-[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_s0nu6"]
+[ext_resource type="Script" path="res://Assets/Obstacles/obstacle.gd" id="1_s0nu6"]
 [ext_resource type="Texture2D" uid="uid://032pmvvr26sb" path="res://Assets/Objects Img/Clouds/Lightning/lightning1.png" id="2_s356w"]
 
 [node name="Obstacle" type="Area2D"]

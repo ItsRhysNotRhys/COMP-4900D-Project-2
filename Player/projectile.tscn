@@ -7,10 +7,9 @@
 radius = 74.0
 height = 280.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["Projectile"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_o53xy")
-speed = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_xuga6")

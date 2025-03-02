@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bp8tmgknqjkde"]
 
-[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_mtu8q"]
+[ext_resource type="Script" path="res://Assets/Obstacles/obstacle.gd" id="1_mtu8q"]
 [ext_resource type="Texture2D" uid="uid://dwk85d3ki3tcp" path="res://Assets/Objects Img/Crystals/crystals_green/crystal_green1.png" id="2_irbx7"]
 
 [node name="Obstacle" type="Area2D"]

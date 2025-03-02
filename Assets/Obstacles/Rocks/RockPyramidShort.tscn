@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://renl3rwoi8ac"]
 
-[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_ccn5j"]
+[ext_resource type="Script" path="res://Assets/Obstacles/obstacle.gd" id="1_ccn5j"]
 [ext_resource type="Texture2D" uid="uid://c3jocylsbf7o8" path="res://Assets/Objects Img/Rocks/middle_lane_rocks1/middle_lane_rock1_2.png" id="2_7r07o"]
 
 [node name="Obstacle" type="Area2D"]

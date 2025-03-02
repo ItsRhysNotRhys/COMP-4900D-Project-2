@@ -29,7 +29,11 @@ project/assembly_name="Comp-4900d-project-2"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GodoTeX/plugin.cfg")
+enabled=PackedStringArray()
+
+[global_group]
+
+Projectile=""
 
 [input]
 
