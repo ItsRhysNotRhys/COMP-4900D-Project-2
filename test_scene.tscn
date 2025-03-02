@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player/test_scene.gd" id="1_qp4ec"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="2_oy65c"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="4_ypdg6"]
-[ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Player/obstacle.tscn" id="6_ui8wy"]
+[ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Assets/Obstacles/obstacle.tscn" id="6_ui8wy"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="6_xnwos"]
 [ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="7_e7nmo"]
 [ext_resource type="Script" path="res://equation_container.gd" id="7_xjocs"]

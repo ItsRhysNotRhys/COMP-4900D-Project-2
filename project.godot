@@ -32,6 +32,10 @@ project/assembly_name="Comp-4900d-project-2"
 
 enabled=PackedStringArray()
 
+[global_group]
+
+Projectile=""
+
 [input]
 
 ui_accept={

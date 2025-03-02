@@ -12,4 +12,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	area.queue_free()
+	if area.is_in_group("Projectile"):
+		area.queue_free()
+	

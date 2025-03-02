@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hf5lbafjhw11"]
 
-[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_41iyf"]
+[ext_resource type="Script" path="res://Assets/Obstacles/obstacle.gd" id="1_41iyf"]
 [ext_resource type="Texture2D" uid="uid://bdpvihve8k70r" path="res://Assets/Objects Img/Clouds/Clouds_black/Shape2/cloud_shape2_1.png" id="2_ksk17"]
 
 [node name="Obstacle" type="Area2D"]

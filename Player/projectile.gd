@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 2
+@export var speed = 8
 var incr = 0
 var alive = false
 var trajectory = []

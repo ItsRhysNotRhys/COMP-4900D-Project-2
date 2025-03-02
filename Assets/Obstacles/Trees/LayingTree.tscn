@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddq6nn5hd55tq"]
 
-[ext_resource type="Script" path="res://Player/obstacle.gd" id="1_fi0ru"]
+[ext_resource type="Script" path="res://Assets/Obstacles/obstacle.gd" id="1_fi0ru"]
 [ext_resource type="Texture2D" uid="uid://dgvyx7ejggvbr" path="res://Assets/Objects Img/Trees/middle_lane_tree1.png" id="2_xoccx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15dqc"]
