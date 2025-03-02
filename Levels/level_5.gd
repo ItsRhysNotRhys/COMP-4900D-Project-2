@@ -8,10 +8,12 @@ const Functions = preload("res://functions.gd")
 
 func _ready() -> void:
 	$Fire.change_scene.connect(_on_fire_change_scene)
-	vbox.function = Functions.functions.QUAD
-	vbox.toggle_transformation(Functions.transformations.VERTICAL_SHIFT)
+	vbox.function = Functions.functions.LINEAR
 	vbox.toggle_transformation(Functions.transformations.HORIZONTAL_SHIFT)
-	vbox.toggle_transformation(Functions.transformations.VERTICAL_SCALE)
+	#set default values
+	vbox.v_flip = -1
+	vbox.v_shift = 8
+	vbox.write_function()
 
 func _on_fire_change_scene() -> void:
 	get_tree().change_scene_to_file(next_scene_path)
