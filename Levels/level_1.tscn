@@ -274,6 +274,7 @@ position = Vector2(1736, 344)
 
 [node name="Obstacle" parent="." instance=ExtResource("7_xvuu1")]
 position = Vector2(802, 708)
+script = null
 
 [node name="Sprite2D" parent="Obstacle" index="0"]
 visible = false

@@ -98,12 +98,14 @@ func evaluate(x: float) -> int:
 	var value = 0
 	x = x / grid_size
 	if function == Functions.functions.LINEAR:
-		value = v_flip * v_scale * ((h_flip * h_scale * x) + h_shift) + v_shift
+		value = v_flip * v_scale * ((h_flip * h_scale * x)) + v_shift
 	elif function == Functions.functions.QUAD:
-		value = v_flip * v_scale * ((h_flip * h_scale * x) + h_shift) * ((h_flip * h_scale * x) + h_shift) + v_shift
+		value = v_flip * v_scale * ((h_flip * h_scale * x)) * ((h_flip * h_scale * x)) + v_shift
 	# add new functions here as needed
 	return value * grid_size
 
+func get_h_shift() -> int:
+	return h_shift
 
 # write function in latex
 func write_function() -> void:
