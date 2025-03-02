@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddq6nn5hd55tq"]
+[gd_scene load_steps=3 format=3 uid="uid://ddq6nn5hd55tq"]
 
 [ext_resource type="Script" path="res://Assets/Obstacles/obstacle.gd" id="1_fi0ru"]
 [ext_resource type="Texture2D" uid="uid://dgvyx7ejggvbr" path="res://Assets/Objects Img/Trees/middle_lane_tree1.png" id="2_xoccx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_15dqc"]
-resource_local_to_scene = true
-size = Vector2(329, 128)
 
 [node name="Obstacle" type="Area2D"]
 script = ExtResource("1_fi0ru")
@@ -13,9 +9,7 @@ script = ExtResource("1_fi0ru")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xoccx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_15dqc")
-debug_color = Color(0.723181, 0.134939, 0.194561, 0.42)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-24, -48, 0, -56, 24, -64, 40, -48, 56, -32, 80, -56, 96, -64, 112, -56, 160, -16, 160, 0, 144, 8, 128, 8, 136, 32, 136, 48, 120, 56, 120, 64, 48, 64, -168, 64, -160, 24, -136, 8, -104, 8, -72, 24, -24, 40, 0, 0, -32, -8, -32, -32)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
