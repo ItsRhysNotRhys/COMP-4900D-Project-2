@@ -18,12 +18,12 @@ debug_color = Color(0.778531, 0.429259, 0.246777, 0.42)
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -40.27)
-scale = Vector2(0.565, 0.565)
+position = Vector2(0, -58.835)
+scale = Vector2(1.905, 1.905)
 sprite_frames = ExtResource("2_wv53q")
 animation = &"Fire"
 autoplay = "Fire"
-frame_progress = 0.688224
+frame_progress = 0.126252
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

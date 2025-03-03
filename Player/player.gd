@@ -32,7 +32,7 @@ func draw_trajectory():
 	var h_shift = function.get_h_shift()
 	for i in range(max_steps+1):
 		var x = i*step_size
-		points.append(Vector2(x + h_shift*100, -function.evaluate(x)))
+		points.append(Vector2(x - h_shift*100, -function.evaluate(x)))
 	
 	$Icon.position = points[0]
 	current_trajectory = points
