@@ -32,6 +32,9 @@ item_count = 1
 [node name="vShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="5"]
 visible = false
 
+[node name="SpinBox" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift" index="1"]
+min_value = 0.0
+
 [node name="hShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="6"]
 visible = false
 

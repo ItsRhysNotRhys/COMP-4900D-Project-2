@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuojumi4tfmeg"]
+[gd_scene load_steps=9 format=3 uid="uid://cuojumi4tfmeg"]
 
 [ext_resource type="Script" path="res://Levels/level_6.gd" id="1_qwopv"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_2ufxy"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_mx8ji"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_0fmcr"]
 [ext_resource type="PackedScene" uid="uid://clsn1o4gdd43k" path="res://Assets/Obstacles/Rocks/RockPyramid.tscn" id="7_isq04"]
+[ext_resource type="PackedScene" uid="uid://20olwm6bh3bu" path="res://Assets/Obstacles/Clouds/CloudRound.tscn" id="7_ppn3q"]
+[ext_resource type="PackedScene" uid="uid://ce5iyly58h41n" path="res://Assets/Obstacles/Clouds/Lightning3.tscn" id="8_shqjh"]
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_qwopv")
@@ -22,7 +24,7 @@ texture = ExtResource("2_2ufxy")
 [node name="MarginContainer" parent="Level" instance=ExtResource("3_teqyl")]
 
 [node name="mainTerm" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
-text = "f(x) = [color=\"#76b5c5\"]±[/color][color=\"#BDB76B\"]a[/color](x [color=\"#FA8072\"] + c[/color])"
+text = "f(x) = [color=\"#76b5c5\"]±[/color][color=\"#BDB76B\"]a[/color](x[color=\"#FA8072\"] - c[/color])"
 
 [node name="changeFunc" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="4"]
 item_count = 1
@@ -30,12 +32,15 @@ item_count = 1
 [node name="vShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="5"]
 visible = false
 
+[node name="SpinBox" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift" index="1"]
+min_value = 0.0
+
 [node name="hShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="6"]
 visible = false
 
 [node name="SpinBox" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift" index="1"]
 min_value = -4.0
-max_value = 4.0
+max_value = 0.0
 
 [node name="vScale" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="7"]
 visible = false
@@ -54,6 +59,14 @@ position = Vector2(1800, 960)
 
 [node name="Obstacle" parent="." instance=ExtResource("7_isq04")]
 position = Vector2(1024, 888)
+scale = Vector2(3, 3)
+
+[node name="Obstacle2" parent="." instance=ExtResource("7_ppn3q")]
+position = Vector2(648, 144)
+scale = Vector2(2, 2)
+
+[node name="Obstacle3" parent="." instance=ExtResource("8_shqjh")]
+position = Vector2(744, 328)
 scale = Vector2(3, 3)
 
 [connection signal="pressed" from="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/Button" to="Player" method="_on_button_pressed"]

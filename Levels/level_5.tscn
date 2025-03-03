@@ -23,7 +23,7 @@ texture = ExtResource("2_th5ja")
 [node name="MarginContainer" parent="Level" instance=ExtResource("3_fdhjd")]
 
 [node name="mainTerm" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
-text = "f(x) = -(x[color=\"#FA8072\"] + c[/color])"
+text = "f(x) = -(x[color=\"#FA8072\"] - c[/color])"
 
 [node name="v_shift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer3" index="1"]
 text = "+ 8"
@@ -36,6 +36,10 @@ visible = false
 
 [node name="hShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="6"]
 visible = false
+
+[node name="SpinBox" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift" index="1"]
+min_value = -12.0
+max_value = 0.0
 
 [node name="vScale" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="7"]
 visible = false
