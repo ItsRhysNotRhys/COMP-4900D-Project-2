@@ -19,20 +19,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#The player controls right now are just for testing. Gonna change it once interface gets implemented
-	handle_input()
 	queue_redraw()
 
 
-func handle_input():
-	if Input.is_action_just_pressed("Shoot"):
-		#Create water projectile and give it the trajectory
-		$Attack.start()
-		$Icon/AnimatedSprite2D.play("Attack")
-		var proj_instance = Projectile.instantiate()
-		add_child(proj_instance)
-		
-		proj_instance.start(current_trajectory)
 
 func _draw():
 	draw_trajectory()
@@ -54,3 +43,13 @@ func draw_trajectory():
 
 func _on_attack_timeout():
 	$Icon/AnimatedSprite2D.play("Idle")
+
+
+func _on_button_pressed() -> void:
+	#Create water projectile and give it the trajectory
+	$Attack.start()
+	$Icon/AnimatedSprite2D.play("Attack")
+	var proj_instance = Projectile.instantiate()
+	add_child(proj_instance)
+	
+	proj_instance.start(current_trajectory)
