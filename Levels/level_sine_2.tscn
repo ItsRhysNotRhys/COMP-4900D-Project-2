@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=3 uid="uid://k60y0l810apb"]
+
+[ext_resource type="Script" path="res://Levels/level_sine_2.gd" id="1_nr2bu"]
+[ext_resource type="Texture2D" uid="uid://dj4g7oghfno0x" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground4/Pale/Battleground4.png" id="2_m7mmm"]
+[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_2idjp"]
+[ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="4_hj4ek"]
+[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="5_k1ce3"]
+[ext_resource type="PackedScene" uid="uid://5c67wesjdp4f" path="res://Assets/Obstacles/Trees/StandingTree.tscn" id="6_mbsfp"]
+[ext_resource type="PackedScene" uid="uid://8bfm5xifqa7d" path="res://Assets/Obstacles/Crystals/CrystalPinkLarge.tscn" id="6_v3vyw"]
+[ext_resource type="PackedScene" uid="uid://clsn1o4gdd43k" path="res://Assets/Obstacles/Rocks/RockPyramid.tscn" id="7_gq6wp"]
+[ext_resource type="PackedScene" uid="uid://disxxsfoh4dj6" path="res://Assets/Obstacles/Crystals/CrystalPinkSmall.tscn" id="7_rtous"]
+[ext_resource type="PackedScene" uid="uid://ddq6nn5hd55tq" path="res://Assets/Obstacles/Trees/LayingTree.tscn" id="8_2crsx"]
+[ext_resource type="PackedScene" uid="uid://20olwm6bh3bu" path="res://Assets/Obstacles/Clouds/CloudRound.tscn" id="11_u852f"]
+[ext_resource type="PackedScene" uid="uid://dppfiws5dbaoj" path="res://Assets/Obstacles/Crystals/CrystalOrangeSmall.tscn" id="12_4jh3l"]
+[ext_resource type="PackedScene" uid="uid://bp8tmgknqjkde" path="res://Assets/Obstacles/Crystals/CrystalGreenLarge.tscn" id="13_0xirg"]
+[ext_resource type="PackedScene" uid="uid://xwnl4nwfcmn3" path="res://Assets/Obstacles/Crystals/CrystalBlueLarge.tscn" id="14_8rwq3"]
+[ext_resource type="PackedScene" uid="uid://hf5lbafjhw11" path="res://Assets/Obstacles/Clouds/CloudWide.tscn" id="15_rln2h"]
+
+[node name="Level_sine_1" type="Node2D"]
+script = ExtResource("1_nr2bu")
+next_scene_path = "res://Levels/title_screen.tscn"
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="background" type="TextureRect" parent="Level"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_m7mmm")
+
+[node name="MarginContainer" parent="Level" instance=ExtResource("3_2idjp")]
+
+[node name="mainTerm" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
+text = "f(x) = [color='#76b5c5']±[/color][color='#BDB76B']a[/color]sin([color='#eab676']±[/color][color='#778899']b[/color]x [color='#FA8072']- c[/color])"
+
+[node name="Player" parent="." instance=ExtResource("4_hj4ek")]
+position = Vector2(590, 947)
+
+[node name="Fire" parent="." instance=ExtResource("5_k1ce3")]
+position = Vector2(1797, 240)
+
+[node name="Obstacle11" parent="." instance=ExtResource("6_v3vyw")]
+position = Vector2(955, 215)
+rotation = -2.61799
+
+[node name="Obstacle8" parent="." instance=ExtResource("7_rtous")]
+position = Vector2(1255, 205)
+rotation = 2.61799
+scale = Vector2(2, 2)
+
+[node name="Obstacle" parent="." instance=ExtResource("6_mbsfp")]
+position = Vector2(1017, 786)
+scale = Vector2(2.25, 2.25)
+
+[node name="Obstacle4" parent="." instance=ExtResource("8_2crsx")]
+position = Vector2(1769, 742)
+rotation = -1.5708
+scale = Vector2(2.5, 2.5)
+
+[node name="Obstacle2" parent="." instance=ExtResource("7_gq6wp")]
+position = Vector2(1787, 959)
+scale = Vector2(2, 2)
+
+[node name="Obstacle3" parent="." instance=ExtResource("11_u852f")]
+position = Vector2(1105, 93)
+scale = Vector2(2, 2)
+
+[node name="Obstacle12" parent="." instance=ExtResource("12_4jh3l")]
+position = Vector2(913, 165)
+rotation = -3.14159
+scale = Vector2(2, 2)
+
+[node name="Obstacle5" parent="." instance=ExtResource("11_u852f")]
+position = Vector2(925, 75)
+
+[node name="Obstacle10" parent="." instance=ExtResource("13_0xirg")]
+position = Vector2(1417, 523)
+rotation = -3.14159
+scale = Vector2(2, 2)
+
+[node name="Obstacle9" parent="." instance=ExtResource("11_u852f")]
+position = Vector2(1421, 363)
+scale = Vector2(1.75, 1.75)
+
+[node name="Obstacle7" parent="." instance=ExtResource("14_8rwq3")]
+position = Vector2(1481, 245)
+rotation = -3.14159
+scale = Vector2(3, 3)
+
+[node name="Obstacle6" parent="." instance=ExtResource("15_rln2h")]
+position = Vector2(1437, 77)
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
+
+[editable path="Level/MarginContainer"]

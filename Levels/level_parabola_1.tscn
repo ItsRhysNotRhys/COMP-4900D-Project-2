@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk830aiv40dt1"]
+
+[ext_resource type="Script" path="res://Levels/level_parabola_1.gd" id="1_3qbt5"]
+[ext_resource type="Texture2D" uid="uid://br26hle7q0bug" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground3/Bright/Battleground3.png" id="2_2nwqq"]
+[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_vlgky"]
+[ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="4_vhcxl"]
+[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="5_12ngi"]
+[ext_resource type="PackedScene" uid="uid://bxe6u2fim2u3t" path="res://Assets/Obstacles/Crystals/CrystalBlackLarge.tscn" id="6_ll482"]
+[ext_resource type="PackedScene" uid="uid://20olwm6bh3bu" path="res://Assets/Obstacles/Clouds/CloudRound.tscn" id="7_05syk"]
+
+[node name="Level_parabola_1" type="Node2D"]
+script = ExtResource("1_3qbt5")
+next_scene_path = "res://Levels/level_parabola_2.tscn"
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="background" type="TextureRect" parent="Level"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_2nwqq")
+
+[node name="MarginContainer" parent="Level" instance=ExtResource("3_vlgky")]
+
+[node name="squared" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template" index="2"]
+visible = true
+
+[node name="Player" parent="." instance=ExtResource("4_vhcxl")]
+position = Vector2(584, 992)
+
+[node name="Fire" parent="." instance=ExtResource("5_12ngi")]
+position = Vector2(1541, 67)
+
+[node name="Obstacle2" parent="." instance=ExtResource("6_ll482")]
+position = Vector2(1657, 814)
+scale = Vector2(5, 5)
+
+[node name="Obstacle" parent="." instance=ExtResource("7_05syk")]
+position = Vector2(659, 45)
+scale = Vector2(3, 3)
+
+[connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
+
+[editable path="Level/MarginContainer"]

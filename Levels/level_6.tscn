@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Levels/level_6.gd" id="1_qwopv"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_2ufxy"]
-[ext_resource type="PackedScene" uid="uid://cd4uhjloypf3p" path="res://margin_container.tscn" id="3_teqyl"]
+[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_teqyl"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_mx8ji"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_0fmcr"]
 [ext_resource type="PackedScene" uid="uid://clsn1o4gdd43k" path="res://Assets/Obstacles/Rocks/RockPyramid.tscn" id="7_isq04"]
@@ -11,7 +11,7 @@
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_qwopv")
-next_scene_path = "res://Levels/title_screen.tscn"
+next_scene_path = "res://Levels/level_parabola_1.tscn"
 
 [node name="Level" type="Node2D" parent="."]
 

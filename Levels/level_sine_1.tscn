@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c85qus2760a0e"]
+
+[ext_resource type="Script" path="res://Levels/level_sine_1.gd" id="1_5bd1m"]
+[ext_resource type="Texture2D" uid="uid://dj4g7oghfno0x" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground4/Pale/Battleground4.png" id="2_fm6vk"]
+[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_a8klx"]
+[ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="4_kq0m7"]
+[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="5_2ehnh"]
+
+[node name="Level_sine_1" type="Node2D"]
+script = ExtResource("1_5bd1m")
+next_scene_path = "res://Levels/level_sine_2.tscn"
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="background" type="TextureRect" parent="Level"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_fm6vk")
+
+[node name="MarginContainer" parent="Level" instance=ExtResource("3_a8klx")]
+
+[node name="mainTerm" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
+text = "f(x) = [color='#76b5c5']±[/color][color='#BDB76B']a[/color]sin([color='#eab676']±[/color][color='#778899']b[/color]x [color='#FA8072']- c[/color])"
+
+[node name="Player" parent="." instance=ExtResource("4_kq0m7")]
+position = Vector2(590, 947)
+
+[node name="Fire" parent="." instance=ExtResource("5_2ehnh")]
+position = Vector2(1516, 664)
+
+[connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
+
+[editable path="Level/MarginContainer"]

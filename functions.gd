@@ -3,8 +3,7 @@ extends Node
 enum functions { # does this start at 0 by default?
 	LINEAR,
 	QUAD,
-	
-	COUNT #keep last for cycling functions
+	SINE
 }
 
 enum transformations {

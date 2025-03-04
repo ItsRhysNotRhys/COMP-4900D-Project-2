@@ -105,6 +105,8 @@ func evaluate(x: float) -> int:
 		value = v_flip * v_scale * ((h_flip * h_scale * x)) + v_shift
 	elif function == Functions.functions.QUAD:
 		value = v_flip * v_scale * ((h_flip * h_scale * x)) * ((h_flip * h_scale * x)) + v_shift
+	elif function == Functions.functions.SINE:
+		value = v_flip * v_scale * sin((h_flip * h_scale * x)) + v_shift 
 	# add new functions here as needed
 	return value * grid_size
 
@@ -120,7 +122,9 @@ func write_function() -> void:
 		f += "-"
 	if (v_scale != 1):
 		f += str(v_scale)
-	if (h_flip == -1) or (h_scale != 1) or (h_shift != 0):
+	if (function == Functions.functions.SINE):
+		f += "sin"
+	if (h_flip == -1) or (h_scale != 1) or (h_shift != 0) or ((function == Functions.functions.SINE)):
 		f += "("
 		if (h_flip == -1):
 			f += "-"

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://fobdo7gj5534"]
+
+[ext_resource type="Script" path="res://Levels/level_parabola_2.gd" id="1_0y2ni"]
+[ext_resource type="Texture2D" uid="uid://br26hle7q0bug" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground3/Bright/Battleground3.png" id="2_5xqsp"]
+[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_4qefo"]
+[ext_resource type="PackedScene" uid="uid://cmx7bl8khjxao" path="res://Assets/Obstacles/Trees/StandingTreeThin.tscn" id="4_66ne2"]
+[ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="4_nsslf"]
+[ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="5_0h32e"]
+
+[node name="Level_parabola_2" type="Node2D"]
+script = ExtResource("1_0y2ni")
+next_scene_path = "res://Levels/level_parabola_3.tscn"
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="background" type="TextureRect" parent="Level"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_5xqsp")
+
+[node name="MarginContainer" parent="Level" instance=ExtResource("3_4qefo")]
+
+[node name="squared" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_box" index="2"]
+visible = true
+
+[node name="squared" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template" index="2"]
+visible = true
+
+[node name="Obstacle2" parent="Level" instance=ExtResource("4_66ne2")]
+position = Vector2(1193, 689)
+scale = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("4_nsslf")]
+position = Vector2(584, 992)
+
+[node name="Fire" parent="." instance=ExtResource("5_0h32e")]
+position = Vector2(1806, 682)
+
+[connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
+
+[editable path="Level/MarginContainer"]
