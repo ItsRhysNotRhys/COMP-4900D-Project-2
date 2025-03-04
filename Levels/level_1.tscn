@@ -18,37 +18,37 @@ next_scene_path = "res://Levels/level_2.tscn"
 [node name="Level" type="Node2D" parent="."]
 
 [node name="background" type="TextureRect" parent="Level"]
-offset_left = 504.0
-offset_right = 2424.0
+offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 texture = ExtResource("2_bl1sa")
 
 [node name="MarginContainer" parent="Level" instance=ExtResource("3_vcv40")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 468.0
+offset_bottom = 1035.0
 
-[node name="mainTerm" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
+[node name="MarginContainer" parent="Level/MarginContainer" index="0"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 518.0
+offset_bottom = 1085.0
+
+[node name="mainTerm" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
 text = "f(x) = x"
 
-[node name="changeFunc" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="4"]
-item_count = 1
+[node name="Polygon2D" parent="Level/MarginContainer" index="1"]
+position = Vector2(8, 18)
 
-[node name="vShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="5"]
-visible = false
+[node name="Wizard" parent="Level/MarginContainer" index="2"]
+position = Vector2(144, 328)
 
-[node name="SpinBox" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift" index="1"]
-min_value = 0.0
-
-[node name="hShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="6"]
-visible = false
-
-[node name="vScale" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="7"]
-visible = false
-
-[node name="vFlip" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="9"]
-visible = false
-
-[node name="hFlip" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="10"]
-visible = false
+[node name="Button" parent="Level/MarginContainer" index="3"]
+offset_left = 248.0
+offset_top = 328.0
+offset_right = 453.0
+offset_bottom = 392.0
 
 [node name="Player" parent="." instance=ExtResource("5_ifb60")]
 position = Vector2(584, 992)
@@ -70,7 +70,7 @@ visible = false
 position = Vector2(890, -28)
 shape = SubResource("RectangleShape2D_ion5l")
 
-[connection signal="pressed" from="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/Button" to="Player" method="_on_button_pressed"]
+[connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 
 [editable path="Level/MarginContainer"]
 [editable path="Obstacle"]

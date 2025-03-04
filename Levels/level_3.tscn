@@ -14,37 +14,15 @@ next_scene_path = "res://Levels/level_4.tscn"
 [node name="Level" type="Node2D" parent="."]
 
 [node name="background" type="TextureRect" parent="Level"]
-offset_left = 504.0
-offset_right = 2424.0
+offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 texture = ExtResource("2_ed23v")
 
 [node name="MarginContainer" parent="Level" instance=ExtResource("3_30qto")]
 
-[node name="mainTerm" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
+[node name="mainTerm" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/function_template/VBoxContainer" index="1"]
 text = "f(x) = [color=\"#BDB76B\"]a[/color]x"
-
-[node name="changeFunc" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="4"]
-item_count = 1
-
-[node name="vShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="5"]
-visible = false
-
-[node name="SpinBox" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift" index="1"]
-min_value = 0.0
-
-[node name="hShift" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="6"]
-visible = false
-
-[node name="vScale" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="7"]
-visible = false
-
-[node name="vFlip" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="9"]
-visible = false
-
-[node name="hFlip" parent="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer" index="10"]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("5_eb0hm")]
 position = Vector2(584, 992)
@@ -56,6 +34,6 @@ position = Vector2(1760, 288)
 position = Vector2(1008, 808)
 scale = Vector2(2, 2)
 
-[connection signal="pressed" from="Level/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/Button" to="Player" method="_on_button_pressed"]
+[connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 
 [editable path="Level/MarginContainer"]

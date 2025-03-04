@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+@onready var main_term = $ui_box/MarginContainer/VBoxContainer/function_box/VBoxContainer/mainTerm
+
 # to test ui with different transformations enabled
 var debug = false
 
@@ -134,7 +136,7 @@ func write_function() -> void:
 		f += "x"
 
 	# set the main term text
-	$ui_box/MarginContainer/VBoxContainer/function_box/VBoxContainer/mainTerm.text = f
+	main_term.text = f
 	
 	# write the vertical shift
 	if (v_shift == 0):
