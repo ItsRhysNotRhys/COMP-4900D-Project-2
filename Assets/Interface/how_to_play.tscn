@@ -38,6 +38,7 @@ theme_override_font_sizes/normal_font_size = 26
 text = "Press to launch your spell!"
 
 [node name="Edit Equation" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 415.0
 offset_top = 794.0
 offset_right = 639.0
@@ -59,6 +60,7 @@ theme_override_font_sizes/normal_font_size = 26
 text = "Click on the arrows to change your equation!"
 
 [node name="Trajectory" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 816.0
 offset_top = 844.0
 offset_right = 1092.0
@@ -80,6 +82,7 @@ theme_override_font_sizes/normal_font_size = 26
 text = "This is the trajectory your water spell will travel! Watch out for obstacles!"
 
 [node name="Fire" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 665.0
 offset_top = 188.0
 offset_right = 861.0
@@ -102,6 +105,7 @@ text = "Your target is this fire!"
 
 [node name="Goal" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 1274.0
 offset_top = 459.0
 offset_right = 1777.0

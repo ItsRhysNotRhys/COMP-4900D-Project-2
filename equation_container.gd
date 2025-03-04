@@ -196,3 +196,21 @@ func _on_v_flip() -> void:
 func _on_h_flip() -> void:
 	h_flip *= -1
 	write_function()
+
+
+func _on_area_2d_mouse_entered():
+	pass
+
+
+func _on_area_2d_mouse_exited():
+	pass
+
+
+func _on_area_2d_mouse_shape_entered(shape_idx):
+	$"../../Area2D/HowToPlay".visible = true
+	print("Visible")
+
+
+func _on_area_2d_mouse_shape_exited(shape_idx):
+	$"../../Area2D/HowToPlay".visible = false
+	print("Hidden")
