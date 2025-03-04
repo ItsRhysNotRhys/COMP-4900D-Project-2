@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2lcx4054sxda"]
+
+[ext_resource type="Texture2D" uid="uid://uh2uatoan4tk" path="res://Assets/Interface/How_To_Play.png" id="1_u3wg8"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1919.0
+offset_bottom = 1081.0
+texture = ExtResource("1_u3wg8")
+
+[node name="Cast Spell" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 202.0
+offset_right = 497.0
+offset_bottom = 284.0
+color = Color(0, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="Cast Spell"]
+points = PackedVector2Array(34.005, 130.415, 75, 52)
+default_color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cast Spell"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+text = "Press to launch your spell!"
+
+[node name="Edit Equation" type="ColorRect" parent="."]
+offset_left = 415.0
+offset_top = 794.0
+offset_right = 639.0
+offset_bottom = 920.0
+color = Color(0, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="Edit Equation"]
+points = PackedVector2Array(44, 179, 60, 61.21)
+default_color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Edit Equation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+text = "Click on the arrows to change your equation!"
+
+[node name="Trajectory" type="ColorRect" parent="."]
+offset_left = 816.0
+offset_top = 844.0
+offset_right = 1092.0
+offset_bottom = 996.0
+color = Color(0, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="Trajectory"]
+points = PackedVector2Array(-30.789, -46, 5.211, 9)
+default_color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Trajectory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+text = "This is the trajectory your water spell will travel! Watch out for obstacles!"
+
+[node name="Fire" type="ColorRect" parent="."]
+offset_left = 665.0
+offset_top = 188.0
+offset_right = 861.0
+offset_bottom = 264.0
+color = Color(0, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="Fire"]
+points = PackedVector2Array(198, 100, 186, 68)
+default_color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Fire"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+text = "Your target is this fire!"
+
+[node name="Goal" type="ColorRect" parent="."]
+visible = false
+offset_left = 1274.0
+offset_top = 459.0
+offset_right = 1777.0
+offset_bottom = 701.0
+color = Color(0.725712, 0.175691, 0.102528, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Goal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 31
+text = "Oh no! A mad wizard casted fireball spells all over the place! We need to help extinguish them. This is a perfect time to practice your water spells!"
