@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 	# set function template text
 	main_text.text = "f(x) = [color='#BDB76B']a[/color]x"
-	v_shift_text.text = "[color='#9370db'] + d[/color]"
+	v_shift_text.text = ""
 	
 	# set horizontal transformation min value
 	#h_shift_spinbox.min_value = -4
