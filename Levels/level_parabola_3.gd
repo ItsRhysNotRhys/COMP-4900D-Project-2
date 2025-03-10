@@ -24,7 +24,7 @@ func _ready() -> void:
 	#vbox.write_function()
 	
 	# set function template text
-	main_text.text = "f(x) = [color='#76b5c5']±[/color][color='#BDB76B']a[/color](x [color='#FA8072']- c[/color])"
+	main_text.text = "f(x) = [color='#76b5c5']±[/color][color='#BDB76B']a[/color](x [color='#FA8072']+ c[/color])"
 	v_shift_text.text = ""
 	
 	# set horizontal transformation min value

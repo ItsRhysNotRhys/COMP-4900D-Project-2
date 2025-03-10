@@ -56,7 +56,7 @@ offset_left = 74.0
 offset_top = 502.0
 offset_right = 74.0
 offset_bottom = 502.0
-text = "The next transformation is our vertical scale! This will directly affect the 'steepness' of our slope."
+text = "The next transformation is the vertical scale, which stretches functions in the vertical direction."
 
 [connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 

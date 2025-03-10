@@ -19,7 +19,7 @@ func _ready() -> void:
 	vbox.write_function()
 	
 	#set function template text through code
-	main_text.text = "f(x) = -(x [color='#FA8072']- c[/color])"
+	main_text.text = "f(x) = -(x [color='#FA8072']+ c[/color])"
 	v_shift_text.text = " + 8"
 
 func _on_fire_change_scene() -> void:

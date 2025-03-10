@@ -76,7 +76,7 @@ offset_left = -744.0
 offset_top = -200.0
 offset_right = -744.0
 offset_bottom = -200.0
-text = "The first transformation will be our vertical shift! This will change the general vertical position of the equation."
+text = "The first function transformation is the vertical shift, which changes the height of the function."
 
 [connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 

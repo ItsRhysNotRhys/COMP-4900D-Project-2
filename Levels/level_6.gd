@@ -18,7 +18,7 @@ func _ready() -> void:
 	vbox.toggle_transformation(Functions.transformations.VERTICAL_SHIFT)
 	
 	#set function template text through code
-	main_text.text = "f(x) = [color='#76b5c5']±[/color][color='#BDB76B']a[/color](x [color='#FA8072']- c[/color])"
+	main_text.text = "f(x) = [color='#76b5c5']±[/color][color='#BDB76B']a[/color](x [color='#FA8072']+ c[/color])"
 	v_shift_text.text = "[color='#9370db'] + d[/color]"
 	
 	#set horizontal transformation min value through code
