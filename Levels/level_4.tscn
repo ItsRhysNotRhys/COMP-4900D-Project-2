@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvq8mrxt4j6fa"]
+[gd_scene load_steps=9 format=3 uid="uid://cvq8mrxt4j6fa"]
 
 [ext_resource type="Script" path="res://Levels/level_4.gd" id="1_xlucx"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_kmu42"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_h684j"]
 [ext_resource type="PackedScene" uid="uid://20olwm6bh3bu" path="res://Assets/Obstacles/Clouds/CloudRound.tscn" id="7_aijux"]
 [ext_resource type="PackedScene" uid="uid://hf5lbafjhw11" path="res://Assets/Obstacles/Clouds/CloudWide.tscn" id="8_sj41p"]
+[ext_resource type="PackedScene" uid="uid://dse5ycvtwdef7" path="res://Assets/Interface/Popup.tscn" id="8_tn0xp"]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_xlucx")
@@ -35,6 +36,13 @@ scale = Vector2(3, 3)
 [node name="Obstacle2" parent="." instance=ExtResource("8_sj41p")]
 position = Vector2(1040, 104)
 scale = Vector2(2, 2)
+
+[node name="Popup" parent="." instance=ExtResource("8_tn0xp")]
+offset_left = 67.0
+offset_top = 503.0
+offset_right = 67.0
+offset_bottom = 503.0
+text = "Vertical reflection! This transformation will decide whether the line travels upwards or downwards. Watch out for those clouds!"
 
 [connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 

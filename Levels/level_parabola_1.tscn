@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Levels/level_parabola_1.gd" id="1_3qbt5"]
 [ext_resource type="Texture2D" uid="uid://br26hle7q0bug" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground3/Bright/Battleground3.png" id="2_2nwqq"]
-[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_vlgky"]
+[ext_resource type="PackedScene" uid="uid://cd4uhjloypf3p" path="res://margin_container.tscn" id="3_vlgky"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="4_vhcxl"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="5_12ngi"]
 [ext_resource type="PackedScene" uid="uid://bxe6u2fim2u3t" path="res://Assets/Obstacles/Crystals/CrystalBlackLarge.tscn" id="6_ll482"]

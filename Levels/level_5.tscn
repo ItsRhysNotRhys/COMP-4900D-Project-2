@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3syutmwi3pcq"]
+[gd_scene load_steps=8 format=3 uid="uid://b3syutmwi3pcq"]
 
 [ext_resource type="Script" path="res://Levels/level_5.gd" id="1_ksmp6"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_th5ja"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_htj5j"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_4itds"]
 [ext_resource type="PackedScene" uid="uid://ddq6nn5hd55tq" path="res://Assets/Obstacles/Trees/LayingTree.tscn" id="7_a72ke"]
+[ext_resource type="PackedScene" uid="uid://dse5ycvtwdef7" path="res://Assets/Interface/Popup.tscn" id="7_j1s38"]
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_ksmp6")
@@ -30,6 +31,13 @@ position = Vector2(1800, 960)
 [node name="Obstacle" parent="." instance=ExtResource("7_a72ke")]
 position = Vector2(680, 304)
 scale = Vector2(2, 2)
+
+[node name="Popup" parent="." instance=ExtResource("7_j1s38")]
+offset_left = 53.0
+offset_top = 514.0
+offset_right = 53.0
+offset_bottom = 514.0
+text = "The horizontal shift will push the equation left or right!"
 
 [connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 
