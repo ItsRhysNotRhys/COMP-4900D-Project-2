@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkbvrsv07k7k7"]
+[gd_scene load_steps=9 format=3 uid="uid://cd4uhjloypf3p"]
 
 [ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="1_rr3py"]
 [ext_resource type="Script" path="res://equation_container.gd" id="2_kh7g7"]
+[ext_resource type="Texture2D" uid="uid://dl8wqhx04x8dh" path="res://Assets/Interface/arrows.svg" id="3_mpe2g"]
 [ext_resource type="Texture2D" uid="uid://diadww28eyyf4" path="res://Assets/wizard_ice/1_IDLE_000.png" id="3_wmnya"]
+[ext_resource type="Script" path="res://spin_box.gd" id="4_amufw"]
 [ext_resource type="Texture2D" uid="uid://muo1esmn05jr" path="res://Assets/Interface/question-sign.png" id="4_lavhc"]
-[ext_resource type="PackedScene" path="res://Assets/Interface/how_to_play.tscn" id="5_fknqm"]
+[ext_resource type="PackedScene" uid="uid://c2lcx4054sxda" path="res://Assets/Interface/how_to_play.tscn" id="5_fknqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jqu4"]
 size = Vector2(58, 54)
@@ -232,12 +234,16 @@ theme_override_colors/font_color = Color(0.576471, 0.439216, 0.858824, 1)
 text = "d: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.54
+theme_override_icons/updown = ExtResource("3_mpe2g")
 max_value = 9.0
 alignment = 2
 update_on_text_changed = true
+script = ExtResource("4_amufw")
 
 [node name="hShift" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
 visible = false
@@ -251,14 +257,18 @@ theme_override_colors/font_color = Color(0.980392, 0.501961, 0.447059, 1)
 text = "c: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.54
+theme_override_icons/updown = ExtResource("3_mpe2g")
 min_value = -12.0
 max_value = 0.0
 alignment = 2
 update_on_text_changed = true
 select_all_on_focus = true
+script = ExtResource("4_amufw")
 
 [node name="vScale" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
 visible = false
@@ -268,13 +278,16 @@ size_flags_vertical = 8
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale"]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.65
 theme_override_colors/font_color = Color(0.741176, 0.717647, 0.419608, 1)
 text = "a: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+theme_override_icons/updown = ExtResource("3_mpe2g")
 min_value = 0.1
 max_value = 9.0
 step = 0.1
@@ -282,6 +295,7 @@ value = 1.0
 alignment = 2
 update_on_text_changed = true
 select_all_on_focus = true
+script = ExtResource("4_amufw")
 
 [node name="hScale" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
 visible = false
@@ -291,13 +305,16 @@ size_flags_vertical = 8
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale"]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.65
 theme_override_colors/font_color = Color(0.466667, 0.533333, 0.6, 1)
 text = "b: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+theme_override_icons/updown = ExtResource("3_mpe2g")
 min_value = 0.1
 max_value = 9.0
 step = 0.1
@@ -305,6 +322,7 @@ value = 1.0
 alignment = 2
 update_on_text_changed = true
 select_all_on_focus = true
+script = ExtResource("4_amufw")
 
 [node name="vFlip_old" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
 visible = false
@@ -436,9 +454,13 @@ scale = Vector2(0.865, 0.865)
 [connection signal="pressed" from="MarginContainer/VBoxContainer/debug_ui/h_flip" to="MarginContainer/VBoxContainer" method="_on_debug_h_flip"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/changeFunc" to="MarginContainer/VBoxContainer" method="_on_change_func"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift/SpinBox" to="MarginContainer/VBoxContainer" method="_on_v_shift_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift/SpinBox" to="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift/SpinBox" method="_on_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift/SpinBox" to="MarginContainer/VBoxContainer" method="_on_h_shift_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift/SpinBox" to="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift/SpinBox" method="_on_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale/SpinBox" to="MarginContainer/VBoxContainer" method="_on_v_scale_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale/SpinBox" to="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale/SpinBox" method="_on_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale/SpinBox" to="MarginContainer/VBoxContainer" method="_on_h_scale_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale/SpinBox" to="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale/SpinBox" method="_on_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip_old/Button" to="MarginContainer/VBoxContainer" method="_on_v_flip"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip/Button" to="MarginContainer/VBoxContainer" method="_on_v_flip"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip_old/Button" to="MarginContainer/VBoxContainer" method="_on_h_flip"]
