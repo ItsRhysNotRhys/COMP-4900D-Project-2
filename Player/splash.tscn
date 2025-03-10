@@ -51,6 +51,7 @@ animations = [{
 }]
 
 [node name="Splash" type="Node2D"]
+z_index = 1
 script = ExtResource("1_1dhpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
