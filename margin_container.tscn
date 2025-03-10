@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd4uhjloypf3p"]
+[gd_scene load_steps=7 format=3 uid="uid://bkbvrsv07k7k7"]
 
 [ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="1_rr3py"]
 [ext_resource type="Script" path="res://equation_container.gd" id="2_kh7g7"]
 [ext_resource type="Texture2D" uid="uid://diadww28eyyf4" path="res://Assets/wizard_ice/1_IDLE_000.png" id="3_wmnya"]
 [ext_resource type="Texture2D" uid="uid://muo1esmn05jr" path="res://Assets/Interface/question-sign.png" id="4_lavhc"]
-[ext_resource type="PackedScene" uid="uid://c2lcx4054sxda" path="res://Assets/Interface/how_to_play.tscn" id="5_fknqm"]
+[ext_resource type="PackedScene" path="res://Assets/Interface/how_to_play.tscn" id="5_fknqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jqu4"]
 size = Vector2(58, 54)
@@ -227,13 +227,13 @@ size_flags_vertical = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.576471, 0.439216, 0.858824, 1)
-text = "Vertical shift:"
+text = "d: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_vertical = 4
 max_value = 9.0
 alignment = 2
@@ -246,13 +246,13 @@ size_flags_vertical = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.980392, 0.501961, 0.447059, 1)
-text = "Horizontal shift:"
+text = "c: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_vertical = 4
 min_value = -12.0
 max_value = 0.0
@@ -267,13 +267,13 @@ size_flags_vertical = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.741176, 0.717647, 0.419608, 1)
-text = "Vertical scale:"
+text = "a: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_vertical = 4
 min_value = 0.1
 max_value = 9.0
@@ -290,13 +290,13 @@ size_flags_vertical = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.466667, 0.533333, 0.6, 1)
-text = "Horizontal scale:"
+text = "b: "
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_vertical = 4
 min_value = 0.1
 max_value = 9.0
@@ -306,18 +306,55 @@ alignment = 2
 update_on_text_changed = true
 select_all_on_focus = true
 
+[node name="vFlip_old" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip_old"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.462745, 0.709804, 0.772549, 1)
+text = "±: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip_old"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+toggle_mode = true
+text = "±"
+
 [node name="vFlip" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.462745, 0.709804, 0.772549, 1)
-text = "Vertical reflection:"
-
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_disabled_color = Color(0.462745, 0.709804, 0.772549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.462745, 0.709804, 0.772549, 1)
+theme_override_colors/font_hover_color = Color(0.462745, 0.709804, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(0.462745, 0.709804, 0.772549, 1)
+theme_override_colors/font_focus_color = Color(0.462745, 0.709804, 0.772549, 1)
+theme_override_colors/font_color = Color(0.462745, 0.709804, 0.772549, 1)
+toggle_mode = true
+text = "±"
+
+[node name="hFlip_old" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip_old"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.917647, 0.713726, 0.462745, 1)
+text = "±: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip_old"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 2
 toggle_mode = true
 text = "±"
 
@@ -326,14 +363,16 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.917647, 0.713726, 0.462745, 1)
-text = "Horizontal reflection:"
-
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_disabled_color = Color(0.917647, 0.713726, 0.462745, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.917647, 0.713726, 0.462745, 1)
+theme_override_colors/font_hover_color = Color(0.917647, 0.713726, 0.462745, 1)
+theme_override_colors/font_pressed_color = Color(0.917647, 0.713726, 0.462745, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.713726, 0.462745, 1)
+theme_override_colors/font_color = Color(0.917647, 0.713726, 0.462745, 1)
 toggle_mode = true
 text = "±"
 
@@ -354,7 +393,9 @@ offset_right = 428.0
 offset_bottom = 367.0
 size_flags_horizontal = 4
 theme = ExtResource("1_rr3py")
-text = "CAST SPELL"
+theme_override_colors/font_color = Color(0.259708, 0.566308, 0.971875, 1)
+theme_override_font_sizes/font_size = 50
+text = "CAST"
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -398,7 +439,9 @@ scale = Vector2(0.865, 0.865)
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hShift/SpinBox" to="MarginContainer/VBoxContainer" method="_on_h_shift_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vScale/SpinBox" to="MarginContainer/VBoxContainer" method="_on_v_scale_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hScale/SpinBox" to="MarginContainer/VBoxContainer" method="_on_h_scale_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip_old/Button" to="MarginContainer/VBoxContainer" method="_on_v_flip"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vFlip/Button" to="MarginContainer/VBoxContainer" method="_on_v_flip"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip_old/Button" to="MarginContainer/VBoxContainer" method="_on_h_flip"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/hFlip/Button" to="MarginContainer/VBoxContainer" method="_on_h_flip"]
 [connection signal="mouse_entered" from="Area2D" to="MarginContainer/VBoxContainer" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="MarginContainer/VBoxContainer" method="_on_area_2d_mouse_exited"]

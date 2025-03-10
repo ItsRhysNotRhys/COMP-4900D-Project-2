@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://38pbdi2i7m3g"]
+[gd_scene load_steps=11 format=3 uid="uid://dh1nok88q5ijm"]
 
 [ext_resource type="Script" path="res://Levels/level_parabola_3.gd" id="1_e15c5"]
 [ext_resource type="Texture2D" uid="uid://br26hle7q0bug" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground3/Bright/Battleground3.png" id="2_nwd5q"]
-[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_jfdjy"]
+[ext_resource type="PackedScene" uid="uid://bkbvrsv07k7k7" path="res://margin_container.tscn" id="3_jfdjy"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_hfyg7"]
 [ext_resource type="PackedScene" uid="uid://5c67wesjdp4f" path="res://Assets/Obstacles/Trees/StandingTree.tscn" id="6_hr4qu"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_wqsrp"]
@@ -35,7 +35,8 @@ visible = true
 position = Vector2(584, 992)
 
 [node name="Fire" parent="." instance=ExtResource("6_wqsrp")]
-position = Vector2(1356, 1017)
+position = Vector2(1384, 954)
+scale = Vector2(2, 2)
 
 [node name="Obstacle2" parent="." instance=ExtResource("6_hr4qu")]
 position = Vector2(1045, 747)

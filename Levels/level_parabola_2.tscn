@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://fobdo7gj5534"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqs2nompabrt"]
 
 [ext_resource type="Script" path="res://Levels/level_parabola_2.gd" id="1_0y2ni"]
 [ext_resource type="Texture2D" uid="uid://br26hle7q0bug" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground3/Bright/Battleground3.png" id="2_5xqsp"]
-[ext_resource type="PackedScene" path="res://margin_container.tscn" id="3_4qefo"]
+[ext_resource type="PackedScene" uid="uid://bkbvrsv07k7k7" path="res://margin_container.tscn" id="3_4qefo"]
 [ext_resource type="PackedScene" uid="uid://cmx7bl8khjxao" path="res://Assets/Obstacles/Trees/StandingTreeThin.tscn" id="4_66ne2"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="4_nsslf"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="5_0h32e"]

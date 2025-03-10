@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_ltete"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_g7ldj"]
-[ext_resource type="PackedScene" uid="uid://cd4uhjloypf3p" path="res://margin_container.tscn" id="3_jky3c"]
+[ext_resource type="PackedScene" uid="uid://bkbvrsv07k7k7" path="res://margin_container.tscn" id="3_jky3c"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_lqagr"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_et2qj"]
 [ext_resource type="PackedScene" uid="uid://ds6o1ot8r4ywi" path="res://Player/obstacle.tscn" id="7_kac12"]
-[ext_resource type="PackedScene" uid="uid://dse5ycvtwdef7" path="res://Assets/Interface/Popup.tscn" id="7_pgpg3"]
+[ext_resource type="PackedScene" path="res://Assets/Interface/Popup.tscn" id="7_pgpg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ion5l"]
 resource_local_to_scene = true
