@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://bevllkhoa8srj"]
+
+[ext_resource type="Script" path="res://Player/splash.gd" id="1_1dhpt"]
+[ext_resource type="Texture2D" uid="uid://dqm5bu5lsavlp" path="res://Assets/Splash/Png_04.png" id="6_pq3wd"]
+[ext_resource type="Texture2D" uid="uid://dlwgas8qrh50w" path="res://Assets/Splash/Png_05.png" id="7_ayapn"]
+[ext_resource type="Texture2D" uid="uid://w3g325lpn47e" path="res://Assets/Splash/Png_06.png" id="8_1to27"]
+[ext_resource type="Texture2D" uid="uid://pghebotpoaqn" path="res://Assets/Splash/Png_07.png" id="9_t6gpi"]
+[ext_resource type="Texture2D" uid="uid://clbe86b7olq3e" path="res://Assets/Splash/Png_08.png" id="10_mpvcl"]
+[ext_resource type="Texture2D" uid="uid://r866oxkup5yt" path="res://Assets/Splash/Png_09.png" id="11_e30a1"]
+[ext_resource type="Texture2D" uid="uid://bsubjxw0llw3t" path="res://Assets/Splash/Png_10.png" id="12_psrds"]
+[ext_resource type="Texture2D" uid="uid://bdbl0tms7pmfb" path="res://Assets/Splash/Png_11.png" id="13_r2up6"]
+[ext_resource type="Texture2D" uid="uid://d8vbyj0fyley" path="res://Assets/Splash/Png_12.png" id="14_h7xk5"]
+[ext_resource type="Texture2D" uid="uid://bgi0l2461la46" path="res://Assets/Splash/Png_13.png" id="15_kxiju"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rf7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pq3wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ayapn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1to27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t6gpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mpvcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e30a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_psrds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r2up6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_h7xk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kxiju")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="Splash" type="Node2D"]
+script = ExtResource("1_1dhpt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.425, 0.425)
+sprite_frames = SubResource("SpriteFrames_0rf7y")
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
