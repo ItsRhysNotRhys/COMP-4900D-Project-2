@@ -57,6 +57,7 @@ text = "CREDITS"
 script = ExtResource("4_fcg5m")
 
 [node name="Credits" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 512.0
 offset_top = 152.0
