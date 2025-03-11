@@ -8,8 +8,7 @@ var step = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	$AudioStreamPlayer.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -21,11 +20,9 @@ func _process(_delta):
 				rotation = (trajectory[step + 1] - position).angle()
 				step += 20
 
-
 func start(points):
 	alive = true
 	trajectory = points
-
 
 func _on_timer_timeout():
 	queue_free()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjpv2u35cbheg"
+path="res://.godot/imported/whoosh (phaser).wav-af90c53fa99c9a2c8ee566993a9b84ff.sample"
+
+[deps]
+
+source_file="res://Player/whoosh (phaser).wav"
+dest_files=["res://.godot/imported/whoosh (phaser).wav-af90c53fa99c9a2c8ee566993a9b84ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

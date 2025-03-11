@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0k78pqmt2v1m"]
+[gd_scene load_steps=5 format=3 uid="uid://d0k78pqmt2v1m"]
 
 [ext_resource type="Script" path="res://Player/fire.gd" id="1_inycd"]
 [ext_resource type="SpriteFrames" uid="uid://cknbvvhj8k1br" path="res://Assets/Fire/fire.tres" id="2_wv53q"]
+[ext_resource type="AudioStream" uid="uid://bru4oro4rxkvt" path="res://Assets/Splash/splash1.wav" id="3_lf4kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15dqc"]
 size = Vector2(129, 130)
@@ -24,6 +25,9 @@ sprite_frames = ExtResource("2_wv53q")
 animation = &"Fire"
 autoplay = "Fire"
 frame_progress = 0.126252
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lf4kj")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

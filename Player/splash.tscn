@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bevllkhoa8srj"]
+[gd_scene load_steps=14 format=3 uid="uid://dllfu3ovesf5r"]
 
 [ext_resource type="Script" path="res://Player/splash.gd" id="1_1dhpt"]
 [ext_resource type="Texture2D" uid="uid://dqm5bu5lsavlp" path="res://Assets/Splash/Png_04.png" id="6_pq3wd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://pghebotpoaqn" path="res://Assets/Splash/Png_07.png" id="9_t6gpi"]
 [ext_resource type="Texture2D" uid="uid://clbe86b7olq3e" path="res://Assets/Splash/Png_08.png" id="10_mpvcl"]
 [ext_resource type="Texture2D" uid="uid://r866oxkup5yt" path="res://Assets/Splash/Png_09.png" id="11_e30a1"]
+[ext_resource type="AudioStream" uid="uid://bru4oro4rxkvt" path="res://Assets/Splash/splash1.wav" id="12_lnsho"]
 [ext_resource type="Texture2D" uid="uid://bsubjxw0llw3t" path="res://Assets/Splash/Png_10.png" id="12_psrds"]
 [ext_resource type="Texture2D" uid="uid://bdbl0tms7pmfb" path="res://Assets/Splash/Png_11.png" id="13_r2up6"]
 [ext_resource type="Texture2D" uid="uid://d8vbyj0fyley" path="res://Assets/Splash/Png_12.png" id="14_h7xk5"]
@@ -63,5 +64,8 @@ autoplay = "default"
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_lnsho")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
