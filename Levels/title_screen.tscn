@@ -57,20 +57,19 @@ text = "CREDITS"
 script = ExtResource("4_fcg5m")
 
 [node name="Credits" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 512.0
-offset_top = 128.0
+offset_top = 152.0
 offset_right = 1408.0
-offset_bottom = 896.0
-color = Color(0, 0, 0, 0.811765)
+offset_bottom = 920.0
+color = Color(0, 0, 0, 0.847059)
 
 [node name="Label" type="Label" parent="Credits"]
 layout_mode = 0
 offset_left = 360.0
-offset_top = 72.0
+offset_top = 48.0
 offset_right = 536.0
-offset_bottom = 141.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 50
@@ -78,22 +77,31 @@ text = "Credits"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 144.0
-offset_right = 832.0
-offset_bottom = 640.0
+offset_left = 56.0
+offset_top = 128.0
+offset_right = 840.0
+offset_bottom = 624.0
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[b]Assets[/b]
+text = "[b]Authors[/b]: Emile, Rhys, Bel
 
+[b]SFX[/b]:
 [url=https://opengameart.org/content/water-splashes]Water splashes[/url] by [url=http://cubeengine.com/forum.php4?action=display_thread&thread_id=2164]Michel Baradari[/url] is licensed under [url=https://creativecommons.org/licenses/by/3.0/]CC-BY 3.0[/url]
-
 [url=https://opengameart.org/content/windy-sound-2]Windy sound 2[/url] by [url=https://opengameart.org/users/arthur]Arthur[/url] is licensed under [url=https://creativecommons.org/licenses/by-sa/3.0/]CC-BY-SA 3.0[/url]
 
+[b]Backgrounds[/b]:
 [url=https://opengameart.org/content/pixel-art-fantasy-game-battlegrounds]Pixel Art Fantasy Game Backgrounds[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is licensed under [url=https://opengameart.org/content/oga-by-30-faq]OGA-BY 3.0[/url]
 
-[url=https://craftpix.net/freebies/free-water-effects-sprite-pack/]Free Water Effects Sprite Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]"
+[b]Sprites[/b]:
+[url=https://craftpix.net/freebies/free-water-effects-sprite-pack/]Free Water Effects Sprite Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+[url=https://craftpix.net/freebies/wizard-character-free-sprite/?num=1&count=72&sq=wizard&pos=9]2D Game Wizard Character - Free Sprite[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+[url=https://craftpix.net/freebies/free-animated-explosion-sprite-pack/?num=2&count=368&sq=smoke%20animation&pos=1]Free Animated Explosion Sprite Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+[url=https://craftpix.net/freebies/free-clouds-pixel-art-asset-pack/]Free Clouds Pixel Art Asset Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+[url=https://craftpix.net/freebies/free-tree-pixel-art-asset-pack/]Free Tree Pixel Art Asset Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+[url=https://craftpix.net/freebies/free-rocks-pixel-art-asset-pack/]Free Rocks Pixel Art Asset Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+[url=https://craftpix.net/freebies/free-crystals-pixel-art-asset-pack/]Free Crystals Pixel Art Asset Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]
+"
 script = ExtResource("4_ynqns")
 
 [node name="CloseCreditsButton" type="Button" parent="Credits"]

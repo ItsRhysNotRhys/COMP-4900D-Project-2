@@ -28,7 +28,7 @@ color = Color(0, 0, 0, 0.67451)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 616.0
+offset_left = 608.0
 offset_top = 288.0
 offset_right = 1312.0
 offset_bottom = 720.0
@@ -40,9 +40,9 @@ When you're ready, press the button below to start your lesson."
 
 [node name="ContinueButton" type="Button" parent="."]
 layout_mode = 2
-offset_left = 856.0
+offset_left = 848.0
 offset_top = 824.0
-offset_right = 1070.0
+offset_right = 1072.0
 offset_bottom = 887.0
 size_flags_vertical = 4
 theme = ExtResource("2_d54i6")

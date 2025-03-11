@@ -24,8 +24,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Shoot"):
 		_on_button_pressed()
 
-
-
 func _draw():
 	draw_trajectory()
 
@@ -41,12 +39,10 @@ func draw_trajectory():
 	current_trajectory = points
 	
 	for i in range(points.size() - 1):
-		
 		draw_line(points[i], points[i+1], Color.RED, 2)
 
 func _on_attack_timeout():
 	$Icon/AnimatedSprite2D.play("Idle")
-
 
 func _on_button_pressed() -> void:
 	#Create water projectile and give it the trajectory
