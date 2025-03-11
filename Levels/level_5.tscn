@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3syutmwi3pcq"]
+[gd_scene load_steps=10 format=3 uid="uid://b3syutmwi3pcq"]
 
 [ext_resource type="Script" path="res://Levels/level_5.gd" id="1_ksmp6"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_th5ja"]
-[ext_resource type="PackedScene" uid="uid://bkbvrsv07k7k7" path="res://margin_container.tscn" id="3_fdhjd"]
+[ext_resource type="PackedScene" uid="uid://cd4uhjloypf3p" path="res://margin_container.tscn" id="3_fdhjd"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_htj5j"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_4itds"]
 [ext_resource type="PackedScene" uid="uid://ddq6nn5hd55tq" path="res://Assets/Obstacles/Trees/LayingTree.tscn" id="7_a72ke"]
 [ext_resource type="PackedScene" path="res://Assets/Interface/Popup.tscn" id="7_j1s38"]
+[ext_resource type="PackedScene" uid="uid://clsn1o4gdd43k" path="res://Assets/Obstacles/Rocks/RockPyramid.tscn" id="8_ovj8u"]
+[ext_resource type="PackedScene" uid="uid://binv7ooy7wcha" path="res://Assets/Obstacles/Trees/Stump2.tscn" id="9_lhofr"]
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_ksmp6")
@@ -38,6 +40,14 @@ offset_top = 514.0
 offset_right = 53.0
 offset_bottom = 514.0
 text = "The horizontal shift will move the function left or right."
+
+[node name="Obstacle2" parent="." instance=ExtResource("8_ovj8u")]
+position = Vector2(968, 816)
+scale = Vector2(4, 4)
+
+[node name="Obstacle3" parent="." instance=ExtResource("9_lhofr")]
+position = Vector2(1032, 544)
+scale = Vector2(3, 3)
 
 [connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 

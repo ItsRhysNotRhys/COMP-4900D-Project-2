@@ -10,6 +10,6 @@ script = ExtResource("1_bqecs")
 texture = ExtResource("2_igypy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(4, -67, -85, 64, 85, 67, 24, -69)
+polygon = PackedVector2Array(0, -64, -85, 64, 85, 67, 39.3886, -30.9524, 24, -64)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://vdge850tqb2q"]
+
+[ext_resource type="Texture2D" uid="uid://dqhn4fb7gf0wx" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground2/Pale/Battleground2.png" id="1_k32sk"]
+[ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="2_d54i6"]
+[ext_resource type="Script" path="res://Levels/continue_button.gd" id="3_gajho"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_k32sk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 272.0
+offset_right = 1344.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.67451)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 288.0
+offset_right = 1312.0
+offset_bottom = 720.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "You are a wizard-in-training attending your first lesson at The Really Fancy Official Wizard Training School. You are studying math-based wizardry, meaning that you need to think of a function before casting your spells. Your spells will follow the path of the function you are thinking of.
+
+When you're ready, press the button below to start your lesson."
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 856.0
+offset_top = 824.0
+offset_right = 1070.0
+offset_bottom = 887.0
+size_flags_vertical = 4
+theme = ExtResource("2_d54i6")
+theme_override_font_sizes/font_size = 40
+text = "CONTINUE"
+script = ExtResource("3_gajho")
+
+[connection signal="pressed" from="ContinueButton" to="ContinueButton" method="_on_pressed"]

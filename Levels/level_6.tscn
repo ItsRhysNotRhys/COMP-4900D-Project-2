@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuojumi4tfmeg"]
+[gd_scene load_steps=10 format=3 uid="uid://cuojumi4tfmeg"]
 
 [ext_resource type="Script" path="res://Levels/level_6.gd" id="1_qwopv"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_2ufxy"]
 [ext_resource type="PackedScene" uid="uid://cd4uhjloypf3p" path="res://margin_container.tscn" id="3_teqyl"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_mx8ji"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_0fmcr"]
+[ext_resource type="PackedScene" uid="uid://xwnl4nwfcmn3" path="res://Assets/Obstacles/Crystals/CrystalBlueLarge.tscn" id="6_oqjb8"]
 [ext_resource type="PackedScene" uid="uid://clsn1o4gdd43k" path="res://Assets/Obstacles/Rocks/RockPyramid.tscn" id="7_isq04"]
 [ext_resource type="PackedScene" uid="uid://20olwm6bh3bu" path="res://Assets/Obstacles/Clouds/CloudRound.tscn" id="7_ppn3q"]
-[ext_resource type="PackedScene" uid="uid://ce5iyly58h41n" path="res://Assets/Obstacles/Clouds/Lightning3.tscn" id="8_shqjh"]
+[ext_resource type="PackedScene" uid="uid://hf5lbafjhw11" path="res://Assets/Obstacles/Clouds/CloudWide.tscn" id="9_kqyqt"]
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_qwopv")
@@ -23,11 +24,19 @@ texture = ExtResource("2_2ufxy")
 
 [node name="MarginContainer" parent="Level" instance=ExtResource("3_teqyl")]
 
+[node name="SpinBox" parent="Level/MarginContainer/MarginContainer/VBoxContainer/ui_box/MarginContainer/VBoxContainer/vShift" index="1"]
+max_value = 6.0
+
 [node name="Player" parent="." instance=ExtResource("5_mx8ji")]
 position = Vector2(584, 992)
 
 [node name="Fire" parent="." instance=ExtResource("6_0fmcr")]
 position = Vector2(1800, 960)
+
+[node name="Obstacle4" parent="." instance=ExtResource("6_oqjb8")]
+position = Vector2(792, 400)
+rotation = 2.87107
+scale = Vector2(2, 2)
 
 [node name="Obstacle" parent="." instance=ExtResource("7_isq04")]
 position = Vector2(1024, 888)
@@ -37,9 +46,9 @@ scale = Vector2(3, 3)
 position = Vector2(648, 144)
 scale = Vector2(2, 2)
 
-[node name="Obstacle3" parent="." instance=ExtResource("8_shqjh")]
-position = Vector2(744, 328)
-scale = Vector2(3, 3)
+[node name="Obstacle3" parent="." instance=ExtResource("9_kqyqt")]
+position = Vector2(744, 272)
+scale = Vector2(2, 2)
 
 [connection signal="pressed" from="Level/MarginContainer/Button" to="Player" method="_on_button_pressed"]
 

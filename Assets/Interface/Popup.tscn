@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dse5ycvtwdef7"]
+[gd_scene load_steps=4 format=3 uid="uid://ba1eyvibjxts2"]
 
 [ext_resource type="Texture2D" uid="uid://dj85iymtn3wua" path="res://Assets/Objects Img/Clouds/Clouds_white/Shape3/cloud_shape3_1.png" id="1_6eq81"]
 [ext_resource type="Script" path="res://Assets/Interface/popup.gd" id="1_gpucm"]
-[ext_resource type="Theme" uid="uid://dwxibm7nlgeua" path="res://Popup_Theme.tres" id="2_f6mr4"]
+[ext_resource type="Theme" path="res://Popup_Theme.tres" id="2_f6mr4"]
 
 [node name="Popup" type="Control"]
 z_index = 1

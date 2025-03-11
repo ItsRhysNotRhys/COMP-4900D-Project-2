@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dop1nf1mbgwcs"]
+[gd_scene load_steps=7 format=3 uid="uid://dop1nf1mbgwcs"]
 
 [ext_resource type="Script" path="res://Levels/button.gd" id="1_d8g6k"]
+[ext_resource type="Texture2D" uid="uid://dqhn4fb7gf0wx" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground2/Pale/Battleground2.png" id="1_fjejb"]
+[ext_resource type="Theme" uid="uid://cbi2ff3qcal0c" path="res://function_theme.tres" id="2_a5noq"]
+[ext_resource type="Script" path="res://Levels/credits_button.gd" id="4_fcg5m"]
+[ext_resource type="Script" path="res://rich_text_label.gd" id="4_ynqns"]
+[ext_resource type="Script" path="res://Levels/close_credits_button.gd" id="6_s3h2s"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,41 +15,99 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_fjejb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -681.0
-offset_top = -154.5
-offset_right = 681.0
-offset_bottom = 154.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 216.0
+offset_right = 1349.0
+offset_bottom = 353.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "Function Wizard"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="."]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 100
-text = "function wizard or whatever
-the title will end up being"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+offset_left = 896.0
+offset_top = 720.0
+offset_right = 1023.0
+offset_bottom = 783.0
 size_flags_vertical = 4
+theme = ExtResource("2_a5noq")
+theme_override_font_sizes/font_size = 40
 text = "START"
 script = ExtResource("1_d8g6k")
 
-[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 816.0
+offset_right = 1047.0
+offset_bottom = 879.0
+size_flags_vertical = 4
+theme = ExtResource("2_a5noq")
+theme_override_font_sizes/font_size = 40
+text = "CREDITS"
+script = ExtResource("4_fcg5m")
+
+[node name="Credits" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 1408.0
+offset_bottom = 896.0
+color = Color(0, 0, 0, 0.811765)
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 72.0
+offset_right = 536.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 832.0
+offset_bottom = 640.0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b]Assets[/b]
+
+[url=https://opengameart.org/content/water-splashes]Water splashes[/url] by [url=http://cubeengine.com/forum.php4?action=display_thread&thread_id=2164]Michel Baradari[/url] is licensed under [url=https://creativecommons.org/licenses/by/3.0/]CC-BY 3.0[/url]
+
+[url=https://opengameart.org/content/windy-sound-2]Windy sound 2[/url] by [url=https://opengameart.org/users/arthur]Arthur[/url] is licensed under [url=https://creativecommons.org/licenses/by-sa/3.0/]CC-BY-SA 3.0[/url]
+
+[url=https://opengameart.org/content/pixel-art-fantasy-game-battlegrounds]Pixel Art Fantasy Game Backgrounds[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is licensed under [url=https://opengameart.org/content/oga-by-30-faq]OGA-BY 3.0[/url]
+
+[url=https://craftpix.net/freebies/free-water-effects-sprite-pack/]Free Water Effects Sprite Pack[/url] by [url=https://craftpix.net/]CraftPix.net[/url] is [url=https://craftpix.net/file-licenses/]royalty-free[/url]"
+script = ExtResource("4_ynqns")
+
+[node name="CloseCreditsButton" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 640.0
+offset_right = 515.0
+offset_bottom = 703.0
+theme = ExtResource("2_a5noq")
+theme_override_font_sizes/font_size = 40
+text = "CLOSE"
+script = ExtResource("6_s3h2s")
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="pressed" from="CreditsButton" to="CreditsButton" method="_on_pressed"]
+[connection signal="meta_clicked" from="Credits/RichTextLabel" to="Credits/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="pressed" from="Credits/CloseCreditsButton" to="Credits/CloseCreditsButton" method="_on_pressed"]

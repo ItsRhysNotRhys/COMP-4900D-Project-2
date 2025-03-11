@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvq8mrxt4j6fa"]
+[gd_scene load_steps=12 format=3 uid="uid://cvq8mrxt4j6fa"]
 
 [ext_resource type="Script" path="res://Levels/level_4.gd" id="1_xlucx"]
 [ext_resource type="Texture2D" uid="uid://ww0oppesw5l5" path="res://Assets/Backgrounds/craftpix-net-776320-free-pixel-art-fantasy-2d-battlegrounds/PNG/Battleground1/Bright/Battleground1.png" id="2_kmu42"]
-[ext_resource type="PackedScene" uid="uid://bkbvrsv07k7k7" path="res://margin_container.tscn" id="3_mb46o"]
+[ext_resource type="PackedScene" uid="uid://cd4uhjloypf3p" path="res://margin_container.tscn" id="3_mb46o"]
+[ext_resource type="PackedScene" uid="uid://5c67wesjdp4f" path="res://Assets/Obstacles/Trees/StandingTree.tscn" id="4_gngep"]
+[ext_resource type="PackedScene" uid="uid://btnn3wcjuf5qs" path="res://Assets/Obstacles/Trees/Stump.tscn" id="5_fcm3h"]
 [ext_resource type="PackedScene" uid="uid://b6jehlrjyd2wf" path="res://Player/player.tscn" id="5_gi2s4"]
 [ext_resource type="PackedScene" uid="uid://d0k78pqmt2v1m" path="res://Player/fire.tscn" id="6_h684j"]
 [ext_resource type="PackedScene" uid="uid://20olwm6bh3bu" path="res://Assets/Obstacles/Clouds/CloudRound.tscn" id="7_aijux"]
+[ext_resource type="PackedScene" uid="uid://bxe6u2fim2u3t" path="res://Assets/Obstacles/Crystals/CrystalBlackLarge.tscn" id="7_wy478"]
 [ext_resource type="PackedScene" uid="uid://hf5lbafjhw11" path="res://Assets/Obstacles/Clouds/CloudWide.tscn" id="8_sj41p"]
 [ext_resource type="PackedScene" path="res://Assets/Interface/Popup.tscn" id="8_tn0xp"]
 
@@ -33,9 +36,22 @@ position = Vector2(1760, 400)
 position = Vector2(744, 336)
 scale = Vector2(3, 3)
 
+[node name="Obstacle5" parent="." instance=ExtResource("7_wy478")]
+position = Vector2(1088, 232)
+rotation = -3.14159
+scale = Vector2(2, 2)
+
 [node name="Obstacle2" parent="." instance=ExtResource("8_sj41p")]
 position = Vector2(1040, 104)
 scale = Vector2(2, 2)
+
+[node name="Obstacle3" parent="." instance=ExtResource("4_gngep")]
+position = Vector2(1712, 816)
+scale = Vector2(2, 2)
+
+[node name="Obstacle4" parent="." instance=ExtResource("5_fcm3h")]
+position = Vector2(1456, 1040)
+scale = Vector2(3, 3)
 
 [node name="Popup" parent="." instance=ExtResource("8_tn0xp")]
 offset_left = 67.0
